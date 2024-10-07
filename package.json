@@ -1,0 +1,12 @@
+{
+    "name": "server_influx_nr",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "server_influx_nr.json",
+            "credentialsFile": "server_influx_nr_cred.json"
+        }
+    }
+}
