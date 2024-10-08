@@ -1412,7 +1412,7 @@
         "id": "a1b3d7fc83d5c6f6",
         "type": "Stackhero-InfluxDB-v2-Server",
         "name": "",
-        "host": "influxdb2",
+        "host": "localhost",
         "port": "8086",
         "tls": false
     },
@@ -2664,7 +2664,7 @@
         "finalize": "",
         "libs": [],
         "x": 1970,
-        "y": 780,
+        "y": 760,
         "wires": [
             [
                 "371770d320aa2377"
@@ -2684,7 +2684,7 @@
         "finalize": "",
         "libs": [],
         "x": 1960,
-        "y": 820,
+        "y": 800,
         "wires": [
             [
                 "e729a7dadb878a4c"
@@ -2977,7 +2977,7 @@
         "type": "function",
         "z": "9fa46c697055fd5a",
         "name": "F_influx_vol",
-        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de nivel litros no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-2.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de nivel litros no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-2.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3010,7 +3010,7 @@
         "type": "function",
         "z": "9fa46c697055fd5a",
         "name": "F_influx_temp",
-        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de temperatura no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-2.1',\n                equipo_id: 'ent-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de temperatura no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-2.1',\n                equipo_id: 'ent-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3018,7 +3018,7 @@
         "finalize": "",
         "libs": [],
         "x": 1980,
-        "y": 860,
+        "y": 840,
         "wires": [
             [
                 "502ec4d7d999a369"
@@ -3030,7 +3030,7 @@
         "type": "function",
         "z": "9fa46c697055fd5a",
         "name": "F_influx_temp",
-        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de temperatura no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-2.2',\n                equipo_id: 'sal-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de temperatura no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-2.2',\n                equipo_id: 'sal-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3050,7 +3050,7 @@
         "type": "function",
         "z": "9fa46c697055fd5a",
         "name": "F_influx_presion",
-        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de presión no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MP-1.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                presion_kg: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de presión no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MP-1.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                presion_kg: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3070,7 +3070,7 @@
         "type": "function",
         "z": "9fa46c697055fd5a",
         "name": "F_influx_flujo",
-        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de flujo no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MF-1.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                flujo_lh: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de flujo no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MF-1.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                flujo_lh: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3999,7 +3999,7 @@
         "type": "function",
         "z": "190ed3e96d0709a5",
         "name": "F_influx_vol",
-        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-1', \n                equipo_id: 'FA-01', \n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-1', \n                equipo_id: 'FA-01', \n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4031,7 +4031,7 @@
         "type": "function",
         "z": "190ed3e96d0709a5",
         "name": "F_influx_vol",
-        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-9', \n                equipo_id: 'FA-09', \n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-9', \n                equipo_id: 'FA-09', \n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4051,7 +4051,7 @@
         "type": "function",
         "z": "190ed3e96d0709a5",
         "name": "F_influx_vol",
-        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-7', \n                equipo_id: 'FA-07', \n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-7', \n                equipo_id: 'FA-07', \n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4887,7 +4887,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1360,
+        "x": 1340,
         "y": 360,
         "wires": [
             [
@@ -5062,7 +5062,7 @@
         "type": "function",
         "z": "5abe0cc40f5ad9c5",
         "name": "F_influx_temp",
-        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-3.2',\n                equipo_id: 'sup-DA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-3.2',\n                equipo_id: 'sup-DA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5094,7 +5094,7 @@
         "type": "function",
         "z": "5abe0cc40f5ad9c5",
         "name": "F_influx_temp",
-        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-3.1',\n                equipo_id: 'inf-DA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-3.1',\n                equipo_id: 'inf-DA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5114,7 +5114,7 @@
         "type": "function",
         "z": "5abe0cc40f5ad9c5",
         "name": "F_influx_temp",
-        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-3.4',\n                equipo_id: 'sup-DA-02',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-3.4',\n                equipo_id: 'sup-DA-02',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5134,7 +5134,7 @@
         "type": "function",
         "z": "5abe0cc40f5ad9c5",
         "name": "F_influx_temp",
-        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-3.3',\n                equipo_id: 'inf-DA-02',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-3.3',\n                equipo_id: 'inf-DA-02',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6126,14 +6126,14 @@
         "type": "function",
         "z": "af530bfa0859125d",
         "name": "F_influx_vol",
-        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-4',\n                equipo_id: 'FA-04',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-4',\n                equipo_id: 'FA-04',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1470,
+        "x": 1570,
         "y": 280,
         "wires": [
             [
@@ -6159,7 +6159,7 @@
         "type": "function",
         "z": "af530bfa0859125d",
         "name": "F_influx_vol",
-        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-6A',\n                equipo_id: 'FA-06A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-6A',\n                equipo_id: 'FA-06A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6179,7 +6179,7 @@
         "type": "function",
         "z": "af530bfa0859125d",
         "name": "F_influx_vol",
-        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-6B',\n                equipo_id: 'FA-06B',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-6B',\n                equipo_id: 'FA-06B',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6503,8 +6503,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
-        "y": 160,
+        "x": 1350,
+        "y": 120,
         "wires": [
             [
                 "efdd98cc3d86d572"
@@ -6524,7 +6524,7 @@
         "finalize": "",
         "libs": [],
         "x": 1640,
-        "y": 160,
+        "y": 100,
         "wires": [
             [
                 "83ace1473dc1c83f",
@@ -6618,7 +6618,7 @@
         "type": "function",
         "z": "af530bfa0859125d",
         "name": "F_influx_flujo",
-        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de flujo no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MF-1.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                flujo_lh: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de flujo no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MF-1.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                flujo_lh: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7234,7 +7234,8 @@
             [
                 "8934c5d47c9c697d",
                 "2a64d686af8139e0",
-                "392dced3cce873cb"
+                "392dced3cce873cb",
+                "e180ba8d03a97e9b"
             ],
             []
         ]
@@ -7254,7 +7255,7 @@
         "expiry": "",
         "broker": "586ef25fd8e81fa5",
         "x": 1640,
-        "y": 320,
+        "y": 280,
         "wires": []
     },
     {
@@ -7269,8 +7270,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1460,
-        "y": 320,
+        "x": 1480,
+        "y": 280,
         "wires": [
             [
                 "d8aa4195427fdb91"
@@ -7315,8 +7316,8 @@
         "width": "1",
         "height": "5",
         "className": "",
-        "x": 1640,
-        "y": 260,
+        "x": 1680,
+        "y": 120,
         "wires": [
             []
         ]
@@ -7333,8 +7334,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1470,
-        "y": 260,
+        "x": 1450,
+        "y": 120,
         "wires": [
             [
                 "a4092641451534e8"
@@ -7354,8 +7355,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1800,
-        "y": 260,
+        "x": 1860,
+        "y": 140,
         "wires": []
     },
     {
@@ -7376,7 +7377,8 @@
             [
                 "98884ba75d120c1b",
                 "4be8b38837695c30",
-                "b8731fdbf0302715"
+                "b8731fdbf0302715",
+                "053fcd60b0acc9ce"
             ],
             []
         ]
@@ -7458,7 +7460,7 @@
         "height": "5",
         "className": "",
         "x": 1650,
-        "y": 360,
+        "y": 320,
         "wires": [
             []
         ]
@@ -7476,7 +7478,7 @@
         "finalize": "",
         "libs": [],
         "x": 1470,
-        "y": 360,
+        "y": 320,
         "wires": [
             [
                 "2cfe75546025340b"
@@ -7496,8 +7498,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1790,
-        "y": 400,
+        "x": 1810,
+        "y": 420,
         "wires": []
     },
     {
@@ -7518,7 +7520,8 @@
             [
                 "7156a2775a96a2c5",
                 "8b89f9dc3ff26392",
-                "827b4e31b057234d"
+                "827b4e31b057234d",
+                "fa993da9386f8ddf"
             ],
             []
         ]
@@ -7538,7 +7541,7 @@
         "expiry": "",
         "broker": "4aabcdd5a91592fb",
         "x": 1620,
-        "y": 520,
+        "y": 560,
         "wires": []
     },
     {
@@ -7554,7 +7557,7 @@
         "finalize": "",
         "libs": [],
         "x": 1460,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "b4f0d8fde1c6abe0"
@@ -7639,7 +7642,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1790,
-        "y": 500,
+        "y": 560,
         "wires": []
     },
     {
@@ -7783,6 +7786,78 @@
         "x": 1480,
         "y": 600,
         "wires": []
+    },
+    {
+        "id": "650f5f82d11bb0dc",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "a0c3bb5123a98cbc",
+        "server": "a1b3d7fc83d5c6f6",
+        "name": "DB",
+        "x": 2210,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e180ba8d03a97e9b",
+        "type": "function",
+        "z": "a0c3bb5123a98cbc",
+        "name": "F_influx_flujo",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-4',\n                equipo_id: 'FA-04',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1730,
+        "y": 220,
+        "wires": [
+            [
+                "650f5f82d11bb0dc"
+            ]
+        ]
+    },
+    {
+        "id": "053fcd60b0acc9ce",
+        "type": "function",
+        "z": "a0c3bb5123a98cbc",
+        "name": "F_influx_vol",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-6A',\n                equipo_id: 'FA-06A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1630,
+        "y": 360,
+        "wires": [
+            [
+                "650f5f82d11bb0dc"
+            ]
+        ]
+    },
+    {
+        "id": "fa993da9386f8ddf",
+        "type": "function",
+        "z": "a0c3bb5123a98cbc",
+        "name": "F_influx_vol",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-6B',\n                equipo_id: 'FA-06B',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1830,
+        "y": 500,
+        "wires": [
+            [
+                "650f5f82d11bb0dc"
+            ]
+        ]
     },
     {
         "id": "12fecd1437a645f5",
@@ -8003,7 +8078,8 @@
             [
                 "98e9ed7dfe575309",
                 "7c72534067bf47a8",
-                "97298e578d71fcd6"
+                "97298e578d71fcd6",
+                "22f6fac42e1280b0"
             ],
             []
         ]
@@ -8020,8 +8096,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1910,
-        "y": 500,
+        "x": 1770,
+        "y": 420,
         "wires": [
             [
                 "774d1a1e5fe9a62c"
@@ -8040,13 +8116,14 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1920,
-        "y": 440,
+        "x": 1840,
+        "y": 360,
         "wires": [
             [
                 "f82b7a6101553c15",
                 "e6c14f7a82315080",
-                "64a2bcc6828e935e"
+                "64a2bcc6828e935e",
+                "2b8683b66ac8b060"
             ]
         ]
     },
@@ -8063,8 +8140,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2190,
-        "y": 400,
+        "x": 2170,
+        "y": 320,
         "wires": []
     },
     {
@@ -8084,7 +8161,8 @@
         "wires": [
             [
                 "fd6756cf620457c8",
-                "f19a2519f209d82c"
+                "f19a2519f209d82c",
+                "aeb7edf3841c6c3a"
             ]
         ]
     },
@@ -8173,8 +8251,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2200,
-        "y": 480,
+        "x": 2160,
+        "y": 400,
         "wires": [
             [
                 "51573dfd8696d5b8"
@@ -8233,8 +8311,8 @@
         "correl": "",
         "expiry": "",
         "broker": "689c5e6207baccbb",
-        "x": 2360,
-        "y": 480,
+        "x": 2320,
+        "y": 400,
         "wires": []
     },
     {
@@ -8250,7 +8328,7 @@
         "finalize": "",
         "libs": [],
         "x": 1900,
-        "y": 720,
+        "y": 700,
         "wires": [
             [
                 "b03f0c7338c426b2"
@@ -8272,7 +8350,7 @@
         "expiry": "",
         "broker": "feca9c5ced6ec599",
         "x": 2060,
-        "y": 720,
+        "y": 700,
         "wires": []
     },
     {
@@ -8313,8 +8391,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 2190,
-        "y": 440,
+        "x": 2170,
+        "y": 360,
         "wires": []
     },
     {
@@ -8831,12 +8909,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1770,
-        "y": 780,
+        "x": 1750,
+        "y": 800,
         "wires": [
             [
                 "82db2357ed8ef412",
-                "74be552c118f0436"
+                "74be552c118f0436",
+                "0aa57d1fa8c89cef"
             ]
         ]
     },
@@ -8852,12 +8931,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1770,
-        "y": 820,
+        "x": 1750,
+        "y": 880,
         "wires": [
             [
                 "faf1277f7c976196",
-                "b125dc77f1115d5e"
+                "b125dc77f1115d5e",
+                "a4f8bb3be81be8aa"
             ]
         ]
     },
@@ -9253,6 +9333,118 @@
         "x": 1030,
         "y": 920,
         "wires": []
+    },
+    {
+        "id": "a485aedf0613acbe",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "ef484dfe62883e41",
+        "server": "a1b3d7fc83d5c6f6",
+        "name": "DB",
+        "x": 2530,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2b8683b66ac8b060",
+        "type": "function",
+        "z": "ef484dfe62883e41",
+        "name": "F_influx_flujo",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de flujo no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MF-1.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                flujo_lh: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2170,
+        "y": 260,
+        "wires": [
+            [
+                "a485aedf0613acbe"
+            ]
+        ]
+    },
+    {
+        "id": "22f6fac42e1280b0",
+        "type": "function",
+        "z": "ef484dfe62883e41",
+        "name": "F_influx_vol",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de nivel litros no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-2.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2090,
+        "y": 620,
+        "wires": [
+            [
+                "a485aedf0613acbe"
+            ]
+        ]
+    },
+    {
+        "id": "aeb7edf3841c6c3a",
+        "type": "function",
+        "z": "ef484dfe62883e41",
+        "name": "F_influx_presion",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de presión no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MP-1.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                presion_kg: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2100,
+        "y": 660,
+        "wires": [
+            [
+                "a485aedf0613acbe"
+            ]
+        ]
+    },
+    {
+        "id": "0aa57d1fa8c89cef",
+        "type": "function",
+        "z": "ef484dfe62883e41",
+        "name": "F_influx_temp",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de temperatura no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-2.1',\n                equipo_id: 'ent-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2380,
+        "y": 740,
+        "wires": [
+            [
+                "a485aedf0613acbe"
+            ]
+        ]
+    },
+    {
+        "id": "a4f8bb3be81be8aa",
+        "type": "function",
+        "z": "ef484dfe62883e41",
+        "name": "F_influx_temp",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de temperatura no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-2.2',\n                equipo_id: 'sal-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2460,
+        "y": 900,
+        "wires": [
+            [
+                "a485aedf0613acbe"
+            ]
+        ]
     },
     {
         "id": "5e9f45f078d99766",
@@ -10153,6 +10345,18 @@
         "wires": []
     },
     {
+        "id": "e9df0b89957630a9",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "1eb03b4f8f90f9d8",
+        "server": "a1b3d7fc83d5c6f6",
+        "name": "DB",
+        "x": 2190,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "f7ddabd37f11d5a1",
         "type": "inject",
         "z": "237db71295252168",
@@ -10560,7 +10764,8 @@
             [
                 "455c74b035bee458",
                 "60977eea11983ef3",
-                "0f5d8550f43b82d9"
+                "0f5d8550f43b82d9",
+                "9887e7527c991d53"
             ],
             []
         ]
@@ -10702,7 +10907,8 @@
             [
                 "d5a5e3b753d67b52",
                 "5247d5babf92f2f1",
-                "71040555683327b1"
+                "71040555683327b1",
+                "d34dc40732492e77"
             ],
             []
         ]
@@ -10844,7 +11050,8 @@
             [
                 "8a4054492ab4cfd0",
                 "e60ca6f5ace3079e",
-                "15551130d770b9ec"
+                "15551130d770b9ec",
+                "e21d50695f6292f9"
             ]
         ]
     },
@@ -10985,6 +11192,78 @@
         "wires": []
     },
     {
+        "id": "0d54dc304bd4a627",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "237db71295252168",
+        "server": "a1b3d7fc83d5c6f6",
+        "name": "DB",
+        "x": 2190,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9887e7527c991d53",
+        "type": "function",
+        "z": "237db71295252168",
+        "name": "F_influx_vol",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-1', \n                equipo_id: 'FA-01', \n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1850,
+        "y": 440,
+        "wires": [
+            [
+                "0d54dc304bd4a627"
+            ]
+        ]
+    },
+    {
+        "id": "d34dc40732492e77",
+        "type": "function",
+        "z": "237db71295252168",
+        "name": "F_influx_vol",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-9', \n                equipo_id: 'FA-09', \n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2010,
+        "y": 700,
+        "wires": [
+            [
+                "0d54dc304bd4a627"
+            ]
+        ]
+    },
+    {
+        "id": "e21d50695f6292f9",
+        "type": "function",
+        "z": "237db71295252168",
+        "name": "F_influx_vol",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-7', \n                equipo_id: 'FA-07', \n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2070,
+        "y": 900,
+        "wires": [
+            [
+                "0d54dc304bd4a627"
+            ]
+        ]
+    },
+    {
         "id": "333780b073541cf7",
         "type": "function",
         "z": "f6951d71b64c6ea4",
@@ -10996,12 +11275,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1240,
+        "x": 1220,
         "y": 540,
         "wires": [
             [
                 "b6b46a3112132566",
-                "04233011427d2e2d"
+                "04233011427d2e2d",
+                "0f059069fa0e7644"
             ]
         ]
     },
@@ -11023,7 +11303,7 @@
         "color": "#717171",
         "className": "",
         "x": 1700,
-        "y": 540,
+        "y": 460,
         "wires": []
     },
     {
@@ -11039,7 +11319,7 @@
         "finalize": "",
         "libs": [],
         "x": 1390,
-        "y": 540,
+        "y": 460,
         "wires": [
             [
                 "ab6a802f6de44b32"
@@ -11059,7 +11339,7 @@
         "finalize": "",
         "libs": [],
         "x": 1540,
-        "y": 540,
+        "y": 460,
         "wires": [
             [
                 "46ccc658d5e737f6"
@@ -11083,7 +11363,8 @@
         "wires": [
             [
                 "52d65cff3b4c58d2",
-                "3f138c9990f8a954"
+                "3f138c9990f8a954",
+                "fb57d3ef49a17720"
             ]
         ]
     },
@@ -11105,7 +11386,7 @@
         "color": "#717171",
         "className": "",
         "x": 1700,
-        "y": 580,
+        "y": 540,
         "wires": []
     },
     {
@@ -11121,7 +11402,7 @@
         "finalize": "",
         "libs": [],
         "x": 1390,
-        "y": 580,
+        "y": 540,
         "wires": [
             [
                 "1a2adafb47097288"
@@ -11141,7 +11422,7 @@
         "finalize": "",
         "libs": [],
         "x": 1540,
-        "y": 580,
+        "y": 540,
         "wires": [
             [
                 "bb4d8de044e1b3f3"
@@ -11165,7 +11446,8 @@
         "wires": [
             [
                 "7fba6cdf343dd69f",
-                "221042bb287440e4"
+                "221042bb287440e4",
+                "c8d1e8957c089dfd"
             ]
         ]
     },
@@ -11247,7 +11529,8 @@
         "wires": [
             [
                 "33e1c96b9be237a0",
-                "300b3f09ac897e9d"
+                "300b3f09ac897e9d",
+                "c776920114fd1592"
             ]
         ]
     },
@@ -11269,7 +11552,7 @@
         "color": "#717171",
         "className": "",
         "x": 1700,
-        "y": 660,
+        "y": 700,
         "wires": []
     },
     {
@@ -11285,7 +11568,7 @@
         "finalize": "",
         "libs": [],
         "x": 1390,
-        "y": 660,
+        "y": 700,
         "wires": [
             [
                 "43fd63a5da543017"
@@ -11305,7 +11588,7 @@
         "finalize": "",
         "libs": [],
         "x": 1540,
-        "y": 660,
+        "y": 700,
         "wires": [
             [
                 "a7a629b2aeb05fd4"
@@ -11825,7 +12108,7 @@
         "expiry": "",
         "broker": "a32defc5189db4ea",
         "x": 1900,
-        "y": 540,
+        "y": 460,
         "wires": []
     },
     {
@@ -11843,7 +12126,7 @@
         "expiry": "",
         "broker": "9c9e2630ed80f90e",
         "x": 1900,
-        "y": 580,
+        "y": 540,
         "wires": []
     },
     {
@@ -11879,7 +12162,99 @@
         "expiry": "",
         "broker": "b2eea5177ada0477",
         "x": 1900,
-        "y": 660,
+        "y": 700,
         "wires": []
+    },
+    {
+        "id": "78ddba4a9b4205c3",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "f6951d71b64c6ea4",
+        "server": "a1b3d7fc83d5c6f6",
+        "name": "DB",
+        "x": 2370,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0f059069fa0e7644",
+        "type": "function",
+        "z": "f6951d71b64c6ea4",
+        "name": "F_influx_temp",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-3.2',\n                equipo_id: 'sup-DA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1560,
+        "y": 500,
+        "wires": [
+            [
+                "78ddba4a9b4205c3"
+            ]
+        ]
+    },
+    {
+        "id": "fb57d3ef49a17720",
+        "type": "function",
+        "z": "f6951d71b64c6ea4",
+        "name": "F_influx_temp",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-3.1',\n                equipo_id: 'inf-DA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1560,
+        "y": 580,
+        "wires": [
+            [
+                "78ddba4a9b4205c3"
+            ]
+        ]
+    },
+    {
+        "id": "c8d1e8957c089dfd",
+        "type": "function",
+        "z": "f6951d71b64c6ea4",
+        "name": "F_influx_temp",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-3.4',\n                equipo_id: 'sup-DA-02',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1560,
+        "y": 660,
+        "wires": [
+            [
+                "78ddba4a9b4205c3"
+            ]
+        ]
+    },
+    {
+        "id": "c776920114fd1592",
+        "type": "function",
+        "z": "f6951d71b64c6ea4",
+        "name": "F_influx_temp",
+        "func": "msg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-3.3',\n                equipo_id: 'inf-DA-02',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1560,
+        "y": 740,
+        "wires": [
+            [
+                "78ddba4a9b4205c3"
+            ]
+        ]
     }
 ]
