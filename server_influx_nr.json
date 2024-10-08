@@ -9929,7 +9929,8 @@
         "wires": [
             [
                 "70e7c024682b436a",
-                "2e2d8bc4884c3dcc"
+                "2e2d8bc4884c3dcc",
+                "d84f1e1cdb3c3727"
             ]
         ]
     },
@@ -9951,7 +9952,7 @@
         "color": "#717171",
         "className": "",
         "x": 1760,
-        "y": 400,
+        "y": 300,
         "wires": []
     },
     {
@@ -9967,7 +9968,7 @@
         "finalize": "",
         "libs": [],
         "x": 1450,
-        "y": 400,
+        "y": 300,
         "wires": [
             [
                 "c54d52a4c69a9dd7"
@@ -9987,7 +9988,7 @@
         "finalize": "",
         "libs": [],
         "x": 1600,
-        "y": 400,
+        "y": 300,
         "wires": [
             [
                 "01e6bbfbb0270ad8"
@@ -10009,7 +10010,7 @@
         "expiry": "",
         "broker": "faac219c20213937",
         "x": 1960,
-        "y": 400,
+        "y": 300,
         "wires": []
     },
     {
@@ -10050,8 +10051,8 @@
         "fontSize": 16,
         "color": "#717171",
         "className": "",
-        "x": 1750,
-        "y": 440,
+        "x": 1770,
+        "y": 400,
         "wires": []
     },
     {
@@ -10066,8 +10067,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1450,
-        "y": 440,
+        "x": 1470,
+        "y": 400,
         "wires": [
             [
                 "1b2dee1aef989956"
@@ -10086,8 +10087,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1600,
-        "y": 440,
+        "x": 1620,
+        "y": 400,
         "wires": [
             [
                 "09b182b456989381"
@@ -10108,8 +10109,8 @@
         "correl": "",
         "expiry": "",
         "broker": "afd9e960d4e5dc31",
-        "x": 1960,
-        "y": 440,
+        "x": 1980,
+        "y": 400,
         "wires": []
     },
     {
@@ -10129,7 +10130,8 @@
         "wires": [
             [
                 "d565e625a2fa25ae",
-                "20e171754da446ee"
+                "20e171754da446ee",
+                "135947a19821030c"
             ]
         ]
     },
@@ -10224,12 +10226,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1300,
-        "y": 520,
+        "x": 1320,
+        "y": 560,
         "wires": [
             [
                 "c2b04d696ca8297c",
-                "64d1f717b140b55c"
+                "64d1f717b140b55c",
+                "dda282a2bb517f29"
             ]
         ]
     },
@@ -10250,8 +10253,8 @@
         "fontSize": 16,
         "color": "#717171",
         "className": "",
-        "x": 1760,
-        "y": 520,
+        "x": 1780,
+        "y": 560,
         "wires": []
     },
     {
@@ -10266,8 +10269,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1450,
-        "y": 520,
+        "x": 1470,
+        "y": 560,
         "wires": [
             [
                 "684af736f7c6871c"
@@ -10286,8 +10289,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1600,
-        "y": 520,
+        "x": 1620,
+        "y": 560,
         "wires": [
             [
                 "8d27f541931454ef"
@@ -10308,8 +10311,8 @@
         "correl": "",
         "expiry": "",
         "broker": "594baef6432bf7e5",
-        "x": 1970,
-        "y": 520,
+        "x": 1990,
+        "y": 560,
         "wires": []
     },
     {
@@ -10354,6 +10357,86 @@
         "y": 440,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "d84f1e1cdb3c3727",
+        "type": "function",
+        "z": "1eb03b4f8f90f9d8",
+        "name": "F_influx_temp",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de temperatura no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-4.1',\n                equipo_id: 'ent-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1600,
+        "y": 340,
+        "wires": [
+            [
+                "e9df0b89957630a9"
+            ]
+        ]
+    },
+    {
+        "id": "b9104d9cb7eab471",
+        "type": "function",
+        "z": "1eb03b4f8f90f9d8",
+        "name": "F_influx_temp",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de temperatura no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-4.2',\n                equipo_id: 'ent-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1620,
+        "y": 440,
+        "wires": [
+            [
+                "e9df0b89957630a9"
+            ]
+        ]
+    },
+    {
+        "id": "135947a19821030c",
+        "type": "function",
+        "z": "1eb03b4f8f90f9d8",
+        "name": "F_influx_temp",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de temperatura no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-4.3',\n                equipo_id: 'ent-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1620,
+        "y": 520,
+        "wires": [
+            [
+                "e9df0b89957630a9"
+            ]
+        ]
+    },
+    {
+        "id": "dda282a2bb517f29",
+        "type": "function",
+        "z": "1eb03b4f8f90f9d8",
+        "name": "F_influx_temp",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de temperatura no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores2',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-4.4',\n                equipo_id: 'ent-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 620,
+        "wires": [
+            [
+                "e9df0b89957630a9"
+            ]
         ]
     },
     {
