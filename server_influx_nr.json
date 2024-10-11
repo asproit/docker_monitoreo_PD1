@@ -11,7 +11,7 @@
         "id": "190ed3e96d0709a5",
         "type": "tab",
         "label": "ADC2",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -765,7 +765,7 @@
         "stateLogEnabled": false,
         "queueLogEnabled": false,
         "failureLogEnabled": true,
-        "tcpHost": "192.168.1.100",
+        "tcpHost": "192.168.1.207",
         "tcpPort": "502",
         "tcpType": "DEFAULT",
         "serialPort": "/dev/ttyUSB0",
@@ -776,11 +776,11 @@
         "serialParity": "none",
         "serialConnectionDelay": "200",
         "serialAsciiResponseStartDelimiter": "0x3A",
-        "unit_id": 1,
-        "commandDelay": 1,
-        "clientTimeout": 5000,
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "5000",
         "reconnectOnTimeout": true,
-        "reconnectTimeout": 2000,
+        "reconnectTimeout": "2000",
         "parallelUnitIdsAllowed": true,
         "showErrors": false,
         "showWarnings": true,
@@ -795,7 +795,7 @@
         "stateLogEnabled": false,
         "queueLogEnabled": false,
         "failureLogEnabled": true,
-        "tcpHost": "192.168.1.201",
+        "tcpHost": "192.168.1.209",
         "tcpPort": "502",
         "tcpType": "TCP-RTU-BUFFERED",
         "serialPort": "/dev/ttyUSB1",
@@ -806,11 +806,11 @@
         "serialParity": "none",
         "serialConnectionDelay": "100",
         "serialAsciiResponseStartDelimiter": "0x3A",
-        "unit_id": 1,
-        "commandDelay": 1,
-        "clientTimeout": 1000,
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
         "reconnectOnTimeout": true,
-        "reconnectTimeout": 2000,
+        "reconnectTimeout": "2000",
         "parallelUnitIdsAllowed": true,
         "showErrors": false,
         "showWarnings": true,
@@ -1826,7 +1826,7 @@
         "stateLogEnabled": false,
         "queueLogEnabled": false,
         "failureLogEnabled": true,
-        "tcpHost": "192.168.1.105",
+        "tcpHost": "192.168.1.206",
         "tcpPort": "502",
         "tcpType": "DEFAULT",
         "serialPort": "/dev/ttyUSB",
@@ -2099,7 +2099,7 @@
         "stateLogEnabled": false,
         "queueLogEnabled": false,
         "failureLogEnabled": true,
-        "tcpHost": "192.168.1.201",
+        "tcpHost": "192.168.1.210",
         "tcpPort": "503",
         "tcpType": "TCP-RTU-BUFFERED",
         "serialPort": "/dev/ttyUSB",
@@ -2129,7 +2129,7 @@
         "stateLogEnabled": false,
         "queueLogEnabled": false,
         "failureLogEnabled": true,
-        "tcpHost": "192.168.1.5",
+        "tcpHost": "192.168.1.205",
         "tcpPort": "502",
         "tcpType": "DEFAULT",
         "serialPort": "/dev/ttyUSB",
@@ -2159,7 +2159,7 @@
         "stateLogEnabled": false,
         "queueLogEnabled": false,
         "failureLogEnabled": true,
-        "tcpHost": "192.168.1.110",
+        "tcpHost": "192.168.1.208",
         "tcpPort": "502",
         "tcpType": "DEFAULT",
         "serialPort": "/dev/ttyUSB",
@@ -7793,7 +7793,7 @@
         "z": "a0c3bb5123a98cbc",
         "server": "a1b3d7fc83d5c6f6",
         "name": "DB",
-        "x": 2210,
+        "x": 2030,
         "y": 360,
         "wires": [
             []
@@ -7811,7 +7811,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1730,
+        "x": 1850,
         "y": 220,
         "wires": [
             [
@@ -11170,8 +11170,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1620,
-        "y": 880,
+        "x": 1640,
+        "y": 780,
         "wires": [
             [
                 "62f7a4dc423789c5"
@@ -11216,8 +11216,8 @@
         "width": "1",
         "height": "5",
         "className": "",
-        "x": 1800,
-        "y": 840,
+        "x": 1820,
+        "y": 740,
         "wires": [
             []
         ]
@@ -11237,8 +11237,8 @@
         "correl": "",
         "expiry": "",
         "broker": "e443c1511ad4f443",
-        "x": 1780,
-        "y": 880,
+        "x": 1620,
+        "y": 820,
         "wires": []
     },
     {
@@ -11254,8 +11254,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1990,
-        "y": 840,
+        "x": 2170,
+        "y": 740,
         "wires": []
     },
     {
@@ -11280,7 +11280,7 @@
         "z": "237db71295252168",
         "server": "a1b3d7fc83d5c6f6",
         "name": "DB",
-        "x": 2190,
+        "x": 2350,
         "y": 660,
         "wires": [
             []
@@ -11298,8 +11298,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1850,
-        "y": 440,
+        "x": 1610,
+        "y": 500,
         "wires": [
             [
                 "0d54dc304bd4a627"
@@ -11318,8 +11318,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2010,
-        "y": 700,
+        "x": 2150,
+        "y": 660,
         "wires": [
             [
                 "0d54dc304bd4a627"
@@ -11338,8 +11338,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2070,
-        "y": 900,
+        "x": 1990,
+        "y": 740,
         "wires": [
             [
                 "0d54dc304bd4a627"
