@@ -765,7 +765,7 @@
         "stateLogEnabled": false,
         "queueLogEnabled": false,
         "failureLogEnabled": true,
-        "tcpHost": "192.168.1.207",
+        "tcpHost": "192.168.1.215",
         "tcpPort": "502",
         "tcpType": "DEFAULT",
         "serialPort": "/dev/ttyUSB0",
@@ -776,11 +776,11 @@
         "serialParity": "none",
         "serialConnectionDelay": "200",
         "serialAsciiResponseStartDelimiter": "0x3A",
-        "unit_id": "1",
-        "commandDelay": "1",
-        "clientTimeout": "5000",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 5000,
         "reconnectOnTimeout": true,
-        "reconnectTimeout": "2000",
+        "reconnectTimeout": 2000,
         "parallelUnitIdsAllowed": true,
         "showErrors": false,
         "showWarnings": true,
@@ -1837,11 +1837,11 @@
         "serialParity": "none",
         "serialConnectionDelay": "100",
         "serialAsciiResponseStartDelimiter": "0x3A",
-        "unit_id": "1",
-        "commandDelay": "1",
-        "clientTimeout": "1000",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
         "reconnectOnTimeout": true,
-        "reconnectTimeout": "2000",
+        "reconnectTimeout": 2000,
         "parallelUnitIdsAllowed": true,
         "showErrors": false,
         "showWarnings": true,
@@ -2129,10 +2129,10 @@
         "stateLogEnabled": false,
         "queueLogEnabled": false,
         "failureLogEnabled": true,
-        "tcpHost": "192.168.1.205",
+        "tcpHost": "192.168.1.254",
         "tcpPort": "502",
-        "tcpType": "DEFAULT",
-        "serialPort": "/dev/ttyUSB",
+        "tcpType": "TCP-RTU-BUFFERED",
+        "serialPort": "/dev/ttyUSB0",
         "serialType": "RTU-BUFFERD",
         "serialBaudrate": "9600",
         "serialDatabits": "8",
@@ -2144,7 +2144,7 @@
         "commandDelay": "1",
         "clientTimeout": "1000",
         "reconnectOnTimeout": true,
-        "reconnectTimeout": "2000",
+        "reconnectTimeout": "3000",
         "parallelUnitIdsAllowed": true,
         "showErrors": false,
         "showWarnings": true,
@@ -2159,7 +2159,7 @@
         "stateLogEnabled": false,
         "queueLogEnabled": false,
         "failureLogEnabled": true,
-        "tcpHost": "192.168.1.208",
+        "tcpHost": "192.168.1.216",
         "tcpPort": "502",
         "tcpType": "DEFAULT",
         "serialPort": "/dev/ttyUSB",
@@ -6774,7 +6774,7 @@
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
                 "e93f7a99f08b5307"
@@ -7094,13 +7094,15 @@
             ],
             [],
             [
-                "52f396e7d97a9777",
-                "f24b5f5b02374f50"
+                "52f396e7d97a9777"
             ],
             [
                 "84f0d3e69dccdfb9"
             ],
-            [],
+            [
+                "3559d324962a24a8",
+                "b074a28ed8cdd104"
+            ],
             [],
             []
         ]
@@ -7234,7 +7236,7 @@
         "finalize": "",
         "libs": [],
         "x": 1260,
-        "y": 300,
+        "y": 280,
         "wires": [
             [
                 "8934c5d47c9c697d",
@@ -7244,24 +7246,6 @@
             ],
             []
         ]
-    },
-    {
-        "id": "d8aa4195427fdb91",
-        "type": "mqtt out",
-        "z": "a0c3bb5123a98cbc",
-        "name": "mqtt_tb_MN-4",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "586ef25fd8e81fa5",
-        "x": 1640,
-        "y": 280,
-        "wires": []
     },
     {
         "id": "8934c5d47c9c697d",
@@ -7276,11 +7260,9 @@
         "finalize": "",
         "libs": [],
         "x": 1480,
-        "y": 280,
+        "y": 340,
         "wires": [
-            [
-                "d8aa4195427fdb91"
-            ]
+            []
         ]
     },
     {
@@ -7321,8 +7303,8 @@
         "width": "1",
         "height": "5",
         "className": "",
-        "x": 1680,
-        "y": 120,
+        "x": 1760,
+        "y": 260,
         "wires": [
             []
         ]
@@ -7339,8 +7321,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1450,
-        "y": 120,
+        "x": 1490,
+        "y": 260,
         "wires": [
             [
                 "a4092641451534e8"
@@ -7360,8 +7342,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1860,
-        "y": 140,
+        "x": 1480,
+        "y": 300,
         "wires": []
     },
     {
@@ -7369,7 +7351,7 @@
         "type": "function",
         "z": "a0c3bb5123a98cbc",
         "name": "calc_vol_FA-06A",
-        "func": "const valorCrudo = msg.payload[0];\nconst valorLitros = ((valorCrudo - 4000)) / (20000 - 4000) * (66300 - 0);\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;\n",
+        "func": "const valorCrudo = msg.payload[0];\nconst valorLitros = ((valorCrudo - 3980)) / (20000 - 3980) * (66300 - 0);\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -7377,7 +7359,7 @@
         "finalize": "",
         "libs": [],
         "x": 1270,
-        "y": 400,
+        "y": 440,
         "wires": [
             [
                 "98884ba75d120c1b",
@@ -7387,24 +7369,6 @@
             ],
             []
         ]
-    },
-    {
-        "id": "42ad818f8ac86835",
-        "type": "mqtt out",
-        "z": "a0c3bb5123a98cbc",
-        "name": "mqtt_tb_MN-6A",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "b4cdb9cd5246ed2e",
-        "x": 1620,
-        "y": 420,
-        "wires": []
     },
     {
         "id": "98884ba75d120c1b",
@@ -7418,12 +7382,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1460,
-        "y": 420,
+        "x": 1480,
+        "y": 500,
         "wires": [
-            [
-                "42ad818f8ac86835"
-            ]
+            []
         ]
     },
     {
@@ -7438,7 +7400,7 @@
         "category": "label",
         "categoryType": "property",
         "xAxisProperty": "",
-        "xAxisPropertyType": "msg",
+        "xAxisPropertyType": "property",
         "xAxisType": "category",
         "yAxisProperty": "value",
         "ymin": "0",
@@ -7464,8 +7426,8 @@
         "width": "1",
         "height": "5",
         "className": "",
-        "x": 1650,
-        "y": 320,
+        "x": 1770,
+        "y": 420,
         "wires": [
             []
         ]
@@ -7482,8 +7444,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1470,
-        "y": 320,
+        "x": 1490,
+        "y": 420,
         "wires": [
             [
                 "2cfe75546025340b"
@@ -7503,8 +7465,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1810,
-        "y": 420,
+        "x": 1490,
+        "y": 460,
         "wires": []
     },
     {
@@ -7512,7 +7474,7 @@
         "type": "function",
         "z": "a0c3bb5123a98cbc",
         "name": "calc_vol_FA-06B",
-        "func": "const valorCrudo = msg.payload[0];\nconst valorLitros = ((valorCrudo - 4000) / (20000 - 4000)) * (0 - 94100) + 94100;\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;\n",
+        "func": "const valorCrudo = msg.payload[0];\nconst valorLitros = ((valorCrudo - 4000) / (20000 - 4000)) * (-1700 - 94100) + 94100;\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -7520,7 +7482,7 @@
         "finalize": "",
         "libs": [],
         "x": 1270,
-        "y": 500,
+        "y": 120,
         "wires": [
             [
                 "7156a2775a96a2c5",
@@ -7530,24 +7492,6 @@
             ],
             []
         ]
-    },
-    {
-        "id": "b4f0d8fde1c6abe0",
-        "type": "mqtt out",
-        "z": "a0c3bb5123a98cbc",
-        "name": "mqtt_tb_MN-6B",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "4aabcdd5a91592fb",
-        "x": 1620,
-        "y": 560,
-        "wires": []
     },
     {
         "id": "7156a2775a96a2c5",
@@ -7561,12 +7505,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1460,
-        "y": 560,
+        "x": 1480,
+        "y": 180,
         "wires": [
-            [
-                "b4f0d8fde1c6abe0"
-            ]
+            []
         ]
     },
     {
@@ -7607,8 +7549,8 @@
         "width": "1",
         "height": "5",
         "className": "",
-        "x": 1650,
-        "y": 460,
+        "x": 1770,
+        "y": 100,
         "wires": [
             []
         ]
@@ -7625,8 +7567,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1470,
-        "y": 460,
+        "x": 1490,
+        "y": 100,
         "wires": [
             [
                 "f30b056ac847726d"
@@ -7646,8 +7588,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1790,
-        "y": 560,
+        "x": 1490,
+        "y": 140,
         "wires": []
     },
     {
@@ -7691,8 +7633,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1270,
-        "y": 640,
+        "x": 1250,
+        "y": 780,
         "wires": [
             [
                 "8d73db3993b693ae",
@@ -7714,29 +7656,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1460,
-        "y": 660,
+        "x": 1480,
+        "y": 820,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "693c462ceb34052d",
-        "type": "mqtt out",
-        "z": "a0c3bb5123a98cbc",
-        "name": "mqtt_tb_MN-6B",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "4aabcdd5a91592fb",
-        "x": 1620,
-        "y": 660,
-        "wires": []
     },
     {
         "id": "a9af084a38173b45",
@@ -7751,8 +7675,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1450,
-        "y": 620,
+        "x": 1490,
+        "y": 780,
         "wires": []
     },
     {
@@ -7790,8 +7714,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1640,
-        "y": 620,
+        "x": 1760,
+        "y": 780,
         "wires": []
     },
     {
@@ -7800,8 +7724,8 @@
         "z": "a0c3bb5123a98cbc",
         "server": "a1b3d7fc83d5c6f6",
         "name": "DB",
-        "x": 2030,
-        "y": 360,
+        "x": 1730,
+        "y": 160,
         "wires": [
             []
         ]
@@ -7818,7 +7742,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1850,
+        "x": 1490,
         "y": 220,
         "wires": [
             [
@@ -7838,8 +7762,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1630,
-        "y": 360,
+        "x": 1490,
+        "y": 380,
         "wires": [
             [
                 "650f5f82d11bb0dc"
@@ -7858,8 +7782,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1830,
-        "y": 500,
+        "x": 1490,
+        "y": 60,
         "wires": [
             [
                 "650f5f82d11bb0dc"
@@ -7867,26 +7791,166 @@
         ]
     },
     {
-        "id": "431c8d0be62f74b0",
+        "id": "b074a28ed8cdd104",
+        "type": "function",
+        "z": "a0c3bb5123a98cbc",
+        "name": "calc_vol_FA-06C",
+        "func": "const valorCrudo = msg.payload[0];\nconst valorLitros = ((valorCrudo - 3990)) / (20000 - 3990) * (34755 - 0);\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1270,
+        "y": 600,
+        "wires": [
+            [
+                "55e75bdf29e49f51",
+                "31326574eb3d5bf1",
+                "60e1402797d4a5dd",
+                "5826c7073db321d1"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "55e75bdf29e49f51",
+        "type": "function",
+        "z": "a0c3bb5123a98cbc",
+        "name": "F_influx_vol",
+        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-6C',\n                equipo_id: 'FA-06C',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1490,
+        "y": 540,
+        "wires": [
+            [
+                "650f5f82d11bb0dc"
+            ]
+        ]
+    },
+    {
+        "id": "31326574eb3d5bf1",
+        "type": "function",
+        "z": "a0c3bb5123a98cbc",
+        "name": "formato_ui",
+        "func": "msg.payload = {\n    value: msg.payload,\n    label: msg.payload + \" Litros\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1490,
+        "y": 580,
+        "wires": [
+            [
+                "6f7312c3e91b82a4"
+            ]
+        ]
+    },
+    {
+        "id": "60e1402797d4a5dd",
         "type": "debug",
         "z": "a0c3bb5123a98cbc",
-        "name": "debug 48",
+        "name": "vol_FA-06C",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1070,
-        "y": 700,
+        "x": 1490,
+        "y": 620,
         "wires": []
     },
     {
-        "id": "f24b5f5b02374f50",
+        "id": "6f7312c3e91b82a4",
+        "type": "ui-chart",
+        "z": "a0c3bb5123a98cbc",
+        "group": "485ecec3c95ed560",
+        "name": "Volumen FA-06C",
+        "label": "Volumen FA-06C",
+        "order": 1,
+        "chartType": "bar",
+        "category": "label",
+        "categoryType": "property",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "property",
+        "xAxisType": "category",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "yAxisLabel": "",
+        "yAxisProperty": "value",
+        "ymin": "0",
+        "ymax": "34755",
+        "action": "replace",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#227dbf",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "1",
+        "height": "5",
+        "className": "",
+        "x": 1770,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5826c7073db321d1",
+        "type": "function",
+        "z": "a0c3bb5123a98cbc",
+        "name": "telemetria",
+        "func": "msg.payload = {\n  volumen: msg.payload\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1480,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3559d324962a24a8",
         "type": "debug",
         "z": "a0c3bb5123a98cbc",
-        "name": "debug 49",
+        "name": "debug 57",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -7894,8 +7958,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1090,
-        "y": 260,
+        "x": 1240,
+        "y": 660,
         "wires": []
     },
     {
@@ -7995,8 +8059,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 980,
-        "y": 800,
+        "x": 940,
+        "y": 840,
         "wires": [
             [
                 "702d60614439d9df"
@@ -8090,8 +8154,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 700,
-        "y": 1020,
+        "x": 710,
+        "y": 1160,
         "wires": [
             [
                 "52f696716f4afee6",
@@ -8111,14 +8175,14 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1710,
-        "y": 540,
+        "x": 1700,
+        "y": 580,
         "wires": [
             [
                 "98e9ed7dfe575309",
                 "7c72534067bf47a8",
-                "97298e578d71fcd6",
-                "22f6fac42e1280b0"
+                "22f6fac42e1280b0",
+                "848b22bc0969f32d"
             ],
             []
         ]
@@ -8135,8 +8199,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1770,
-        "y": 420,
+        "x": 1750,
+        "y": 520,
         "wires": [
             [
                 "774d1a1e5fe9a62c"
@@ -8155,11 +8219,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1840,
-        "y": 360,
+        "x": 2000,
+        "y": 520,
         "wires": [
             [
-                "f82b7a6101553c15",
                 "e6c14f7a82315080",
                 "64a2bcc6828e935e",
                 "2b8683b66ac8b060"
@@ -8167,41 +8230,25 @@
         ]
     },
     {
-        "id": "f82b7a6101553c15",
-        "type": "debug",
-        "z": "ef484dfe62883e41",
-        "name": "Flujo COPE",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2170,
-        "y": 320,
-        "wires": []
-    },
-    {
         "id": "49285a965e3008a7",
         "type": "function",
         "z": "ef484dfe62883e41",
         "name": "calc_presion",
-        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 10.1972;\n\nconst valorADC = msg.payload[0];\nconst valorPresion = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\n// Redondear a un decimal\nmsg.payload = Math.round(valorPresion * 10) / 10;\n\nreturn msg;\n",
+        "func": "const valorADCMin = 3850;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 12.23664;\n\nconst valorADC = msg.payload[0];\nconst valorPresion = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\n// Redondear a un decimal\nmsg.payload = Math.round(valorPresion * 10) / 10;\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1720,
-        "y": 700,
+        "x": 1710,
+        "y": 420,
         "wires": [
             [
                 "fd6756cf620457c8",
                 "f19a2519f209d82c",
-                "aeb7edf3841c6c3a"
+                "aeb7edf3841c6c3a",
+                "6104d814fbbaffc9"
             ]
         ]
     },
@@ -8268,14 +8315,19 @@
         "y": 740,
         "wires": [
             [
-                "49285a965e3008a7"
+                "49285a965e3008a7",
+                "12ec2de2de8953ab"
             ],
             [
                 "c98d29923810f8a4",
-                "f567f8f27fb7333c"
+                "f567f8f27fb7333c",
+                "6f2ec31612384194"
             ],
             [],
-            []
+            [
+                "88ee6a4e2d2990d8",
+                "77576749e2c9314a"
+            ]
         ]
     },
     {
@@ -8290,31 +8342,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2160,
-        "y": 400,
+        "x": 2200,
+        "y": 520,
         "wires": [
-            [
-                "51573dfd8696d5b8"
-            ]
+            []
         ]
-    },
-    {
-        "id": "8d246839521d1c4a",
-        "type": "mqtt out",
-        "z": "ef484dfe62883e41",
-        "name": "mqtt_tb_MN-2.1",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "75c0821a42a5cdfb",
-        "x": 2120,
-        "y": 560,
-        "wires": []
     },
     {
         "id": "98e9ed7dfe575309",
@@ -8328,31 +8360,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1940,
-        "y": 560,
+        "x": 1920,
+        "y": 680,
         "wires": [
-            [
-                "8d246839521d1c4a"
-            ]
+            []
         ]
-    },
-    {
-        "id": "51573dfd8696d5b8",
-        "type": "mqtt out",
-        "z": "ef484dfe62883e41",
-        "name": "mqtt_tb_MF-1.1",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "689c5e6207baccbb",
-        "x": 2320,
-        "y": 400,
-        "wires": []
     },
     {
         "id": "fd6756cf620457c8",
@@ -8367,30 +8379,10 @@
         "finalize": "",
         "libs": [],
         "x": 1900,
-        "y": 700,
+        "y": 440,
         "wires": [
-            [
-                "b03f0c7338c426b2"
-            ]
+            []
         ]
-    },
-    {
-        "id": "b03f0c7338c426b2",
-        "type": "mqtt out",
-        "z": "ef484dfe62883e41",
-        "name": "mqtt_tb_MP-1.1",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "feca9c5ced6ec599",
-        "x": 2060,
-        "y": 700,
-        "wires": []
     },
     {
         "id": "64a2bcc6828e935e",
@@ -8430,8 +8422,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 2170,
-        "y": 360,
+        "x": 2210,
+        "y": 480,
         "wires": []
     },
     {
@@ -8445,16 +8437,21 @@
         "chartType": "bar",
         "category": "label",
         "categoryType": "property",
+        "xAxisLabel": "",
         "xAxisProperty": "",
-        "xAxisPropertyType": "msg",
+        "xAxisPropertyType": "property",
         "xAxisType": "category",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "yAxisLabel": "",
         "yAxisProperty": "value",
         "ymin": "0",
         "ymax": "40000",
         "action": "replace",
+        "stackSeries": true,
         "pointShape": "circle",
         "pointRadius": 4,
-        "showLegend": false,
+        "showLegend": true,
         "removeOlder": 1,
         "removeOlderUnit": "3600",
         "removeOlderPoints": "",
@@ -8469,11 +8466,19 @@
             "#9467bd",
             "#c5b0d5"
         ],
-        "width": "1",
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "2",
         "height": "5",
         "className": "",
-        "x": 2280,
-        "y": 520,
+        "x": 2140,
+        "y": 560,
         "wires": [
             []
         ]
@@ -8490,8 +8495,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2110,
-        "y": 520,
+        "x": 1930,
+        "y": 560,
         "wires": [
             [
                 "08e2393cbe52d0af"
@@ -8536,24 +8541,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 2260,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "97298e578d71fcd6",
-        "type": "debug",
-        "z": "ef484dfe62883e41",
-        "name": "debug 10",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1880,
-        "y": 620,
+        "x": 1940,
+        "y": 400,
         "wires": []
     },
     {
@@ -8746,7 +8735,9 @@
         "x": 710,
         "y": 760,
         "wires": [
-            []
+            [
+                "52f696716f4afee6"
+            ]
         ]
     },
     {
@@ -8771,7 +8762,7 @@
         "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":2,\"quantity\":1}",
         "payloadType": "json",
         "x": 710,
-        "y": 800,
+        "y": 920,
         "wires": [
             [
                 "b3cb6bc705334ae6"
@@ -8790,7 +8781,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2030,
+        "x": 1930,
         "y": 860,
         "wires": [
             [
@@ -8810,31 +8801,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2040,
-        "y": 900,
+        "x": 1920,
+        "y": 920,
         "wires": [
-            [
-                "8f8eed0308e903d9"
-            ]
+            []
         ]
-    },
-    {
-        "id": "9b562a814f086265",
-        "type": "mqtt out",
-        "z": "ef484dfe62883e41",
-        "name": "mqtt_tb_ST-2.1",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "233cd5171dde3839",
-        "x": 2220,
-        "y": 820,
-        "wires": []
     },
     {
         "id": "5c2751931feee1c0",
@@ -8853,26 +8824,8 @@
         "fontSize": 16,
         "color": "#717171",
         "className": "",
-        "x": 2220,
+        "x": 2140,
         "y": 780,
-        "wires": []
-    },
-    {
-        "id": "8f8eed0308e903d9",
-        "type": "mqtt out",
-        "z": "ef484dfe62883e41",
-        "name": "mqtt_tb_ST-2.2",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "3b8eefdff633489b",
-        "x": 2220,
-        "y": 900,
         "wires": []
     },
     {
@@ -8887,7 +8840,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2030,
+        "x": 1930,
         "y": 780,
         "wires": [
             [
@@ -8907,12 +8860,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2040,
+        "x": 1920,
         "y": 820,
         "wires": [
-            [
-                "9b562a814f086265"
-            ]
+            []
         ]
     },
     {
@@ -8932,7 +8883,7 @@
         "fontSize": 16,
         "color": "#717171",
         "className": "",
-        "x": 2230,
+        "x": 2130,
         "y": 860,
         "wires": []
     },
@@ -8941,15 +8892,15 @@
         "type": "function",
         "z": "ef484dfe62883e41",
         "name": "calc_temp",
-        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 500;\n\nconst valorADC = msg.payload[0];\nconst valorTemperatura = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = Math.round(valorTemperatura);\n\nreturn msg;\n",
+        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 700;\n\nconst valorADC = msg.payload[0];\nconst valorTemperatura = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = Math.round(valorTemperatura);\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1750,
-        "y": 800,
+        "x": 1710,
+        "y": 760,
         "wires": [
             [
                 "82db2357ed8ef412",
@@ -8963,14 +8914,14 @@
         "type": "function",
         "z": "ef484dfe62883e41",
         "name": "calc_temp",
-        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 1300;\n\nconst valorADC = msg.payload[0];\nconst valorTemperatura = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = Math.round(valorTemperatura);\n\nreturn msg;\n",
+        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 45;\nconst valorMax = 1100;\n\nconst valorADC = msg.payload[0];\nconst valorTemperatura = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = Math.round(valorTemperatura);\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1750,
+        "x": 1710,
         "y": 880,
         "wires": [
             [
@@ -8984,7 +8935,7 @@
         "id": "7db8237487ddd4c8",
         "type": "inject",
         "z": "ef484dfe62883e41",
-        "name": "ADC_2_AI4",
+        "name": "ADC_2_AI1",
         "props": [
             {
                 "p": "payload"
@@ -8998,8 +8949,8 @@
         "crontab": "",
         "once": true,
         "onceDelay": "1",
-        "topic": "read_ADC2_AI4",
-        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":0,\"quantity\":1}",
+        "topic": "read_ADC2_AI1",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":1,\"quantity\":1}",
         "payloadType": "json",
         "x": 710,
         "y": 840,
@@ -9067,7 +9018,7 @@
         "id": "a28ff23068308b0c",
         "type": "inject",
         "z": "ef484dfe62883e41",
-        "name": "ADC_1_AI5",
+        "name": "ADC_2_AI6",
         "props": [
             {
                 "p": "payload"
@@ -9081,20 +9032,22 @@
         "crontab": "",
         "once": true,
         "onceDelay": "1",
-        "topic": "read_ADC1_AI5",
-        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":6,\"quantity\":1}",
+        "topic": "read_ADC2_AI6",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":5,\"quantity\":1}",
         "payloadType": "json",
         "x": 710,
-        "y": 880,
+        "y": 1040,
         "wires": [
-            []
+            [
+                "b3cb6bc705334ae6"
+            ]
         ]
     },
     {
         "id": "c64d76458d1edf59",
         "type": "inject",
         "z": "ef484dfe62883e41",
-        "name": "ADC_1_AI6",
+        "name": "ADC_2_AI7",
         "props": [
             {
                 "p": "payload"
@@ -9108,20 +9061,22 @@
         "crontab": "",
         "once": true,
         "onceDelay": "1",
-        "topic": "read_ADC1_AI8",
-        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":7,\"quantity\":1}",
+        "topic": "read_ADC2_AI7",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":6,\"quantity\":1}",
         "payloadType": "json",
         "x": 710,
-        "y": 920,
+        "y": 1080,
         "wires": [
-            []
+            [
+                "b3cb6bc705334ae6"
+            ]
         ]
     },
     {
         "id": "bfad1b030e53f15a",
         "type": "inject",
         "z": "ef484dfe62883e41",
-        "name": "ADC_1_AI7",
+        "name": "ADC_2_AI8",
         "props": [
             {
                 "p": "payload"
@@ -9135,13 +9090,15 @@
         "crontab": "",
         "once": true,
         "onceDelay": "1",
-        "topic": "read_ADC1_AI8",
-        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":8,\"quantity\":1}",
+        "topic": "read_ADC2_AI8",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":7,\"quantity\":1}",
         "payloadType": "json",
         "x": 710,
-        "y": 960,
+        "y": 1120,
         "wires": [
-            []
+            [
+                "b3cb6bc705334ae6"
+            ]
         ]
     },
     {
@@ -9196,16 +9153,18 @@
         "checkall": "true",
         "repair": false,
         "outputs": 8,
-        "x": 1430,
-        "y": 860,
+        "x": 1410,
+        "y": 900,
         "wires": [
             [],
             [],
             [
-                "e64d56b38b63e707"
+                "e64d56b38b63e707",
+                "0577d78ce7763ed3"
             ],
             [
-                "88ee6a4e2d2990d8"
+                "84a1d17d56091076",
+                "45c510cafe3c77c8"
             ],
             [],
             [],
@@ -9226,7 +9185,7 @@
         "finalize": "",
         "libs": [],
         "x": 940,
-        "y": 1020,
+        "y": 940,
         "wires": [
             [
                 "c296231e87efaef1"
@@ -9358,29 +9317,13 @@
         ]
     },
     {
-        "id": "83de3e59dfdca9a9",
-        "type": "debug",
-        "z": "ef484dfe62883e41",
-        "name": "debug 35",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1030,
-        "y": 920,
-        "wires": []
-    },
-    {
         "id": "a485aedf0613acbe",
         "type": "Stackhero-InfluxDB-v2-write",
         "z": "ef484dfe62883e41",
         "server": "a1b3d7fc83d5c6f6",
         "name": "DB",
-        "x": 2530,
-        "y": 600,
+        "x": 2510,
+        "y": 580,
         "wires": [
             []
         ]
@@ -9397,8 +9340,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2170,
-        "y": 260,
+        "x": 2210,
+        "y": 440,
         "wires": [
             [
                 "a485aedf0613acbe"
@@ -9417,8 +9360,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2090,
-        "y": 620,
+        "x": 1930,
+        "y": 640,
         "wires": [
             [
                 "a485aedf0613acbe"
@@ -9437,8 +9380,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2100,
-        "y": 660,
+        "x": 1920,
+        "y": 360,
         "wires": [
             [
                 "a485aedf0613acbe"
@@ -9457,8 +9400,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2380,
-        "y": 740,
+        "x": 2320,
+        "y": 760,
         "wires": [
             [
                 "a485aedf0613acbe"
@@ -9477,13 +9420,351 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2460,
-        "y": 900,
+        "x": 2320,
+        "y": 880,
         "wires": [
             [
                 "a485aedf0613acbe"
             ]
         ]
+    },
+    {
+        "id": "9223487f1fbb6661",
+        "type": "inject",
+        "z": "ef484dfe62883e41",
+        "name": "ADC_1_AI3",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC1_AI3",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":3,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 710,
+        "y": 800,
+        "wires": [
+            [
+                "52f696716f4afee6"
+            ]
+        ]
+    },
+    {
+        "id": "848b22bc0969f32d",
+        "type": "ui-text",
+        "z": "ef484dfe62883e41",
+        "group": "75e50c331c190f67",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "name": "VOLUMEN FA-02",
+        "label": "VOLUMEN FA-02",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": true,
+        "font": "",
+        "fontSize": "34",
+        "color": "#000000",
+        "className": "",
+        "x": 1950,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "77576749e2c9314a",
+        "type": "debug",
+        "z": "ef484dfe62883e41",
+        "name": "debug 53",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1700,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "0577d78ce7763ed3",
+        "type": "debug",
+        "z": "ef484dfe62883e41",
+        "name": "debug 55",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1700,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "b985cd5257a939dd",
+        "type": "inject",
+        "z": "ef484dfe62883e41",
+        "name": "ADC_2_AI5",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC2_AI5",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":4,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 710,
+        "y": 1000,
+        "wires": [
+            [
+                "b3cb6bc705334ae6"
+            ]
+        ]
+    },
+    {
+        "id": "d57a91ccd5122348",
+        "type": "inject",
+        "z": "ef484dfe62883e41",
+        "name": "ADC_2_AI4",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC2_AI4",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":3,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 710,
+        "y": 960,
+        "wires": [
+            [
+                "b3cb6bc705334ae6"
+            ]
+        ]
+    },
+    {
+        "id": "3c0cec3c9148baef",
+        "type": "inject",
+        "z": "ef484dfe62883e41",
+        "name": "ADC_2_AI2",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC2_AI2",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":1,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 710,
+        "y": 880,
+        "wires": [
+            [
+                "b3cb6bc705334ae6"
+            ]
+        ]
+    },
+    {
+        "id": "12ec2de2de8953ab",
+        "type": "debug",
+        "z": "ef484dfe62883e41",
+        "name": "debug 58",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1660,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "6104d814fbbaffc9",
+        "type": "debug",
+        "z": "ef484dfe62883e41",
+        "name": "debug 59",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1920,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "84a1d17d56091076",
+        "type": "debug",
+        "z": "ef484dfe62883e41",
+        "name": "debug 60",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1700,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "45c510cafe3c77c8",
+        "type": "function",
+        "z": "ef484dfe62883e41",
+        "name": "calc_temp",
+        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 500;\n\nconst valorADC = msg.payload[0];\nconst valorTemperatura = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = Math.round(valorTemperatura);\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1710,
+        "y": 1000,
+        "wires": [
+            [
+                "9520e543fa25fcb9",
+                "85e1640c84f1a1e4",
+                "47cb39a66059460b"
+            ]
+        ]
+    },
+    {
+        "id": "9520e543fa25fcb9",
+        "type": "function",
+        "z": "ef484dfe62883e41",
+        "name": "Format temp",
+        "func": "let temperature = msg.payload;\nmsg.payload = temperature + \"°C\"; // Añade la unidad °C al número\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1930,
+        "y": 1000,
+        "wires": [
+            [
+                "7e9b8ef87e994358"
+            ]
+        ]
+    },
+    {
+        "id": "7e9b8ef87e994358",
+        "type": "ui-text",
+        "z": "ef484dfe62883e41",
+        "group": "75e50c331c190f67",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "Tanque_15-A",
+        "label": "Tanque_15-A",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": true,
+        "font": "Helvetica, sans-serif",
+        "fontSize": 16,
+        "color": "#717171",
+        "className": "",
+        "x": 2130,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "85e1640c84f1a1e4",
+        "type": "function",
+        "z": "ef484dfe62883e41",
+        "name": "telemetria",
+        "func": "msg.payload = {\n  temperatura: msg.payload\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1920,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "47cb39a66059460b",
+        "type": "function",
+        "z": "ef484dfe62883e41",
+        "d": true,
+        "name": "F_influx_temp",
+        "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de temperatura no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-2.2',\n                equipo_id: 'sal-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2320,
+        "y": 960,
+        "wires": [
+            [
+                "a485aedf0613acbe"
+            ]
+        ]
+    },
+    {
+        "id": "6f2ec31612384194",
+        "type": "debug",
+        "z": "ef484dfe62883e41",
+        "name": "debug 61",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1480,
+        "y": 480,
+        "wires": []
     },
     {
         "id": "5e9f45f078d99766",
@@ -9506,8 +9787,8 @@
         "topic": "read_ADC4_AI0",
         "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":40,\"quantity\":1}",
         "payloadType": "json",
-        "x": 350,
-        "y": 440,
+        "x": 330,
+        "y": 500,
         "wires": [
             [
                 "34559fc6ca703fdf"
@@ -9535,8 +9816,8 @@
         "topic": "update",
         "payload": "",
         "payloadType": "date",
-        "x": 390,
-        "y": 400,
+        "x": 340,
+        "y": 460,
         "wires": [
             [
                 "34559fc6ca703fdf"
@@ -9564,8 +9845,8 @@
         "topic": "next",
         "payload": "",
         "payloadType": "date",
-        "x": 400,
-        "y": 360,
+        "x": 350,
+        "y": 420,
         "wires": [
             [
                 "34559fc6ca703fdf"
@@ -9591,8 +9872,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 690,
-        "y": 460,
+        "x": 680,
+        "y": 380,
         "wires": [
             [
                 "34559fc6ca703fdf"
@@ -9611,8 +9892,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 580,
+        "x": 620,
+        "y": 520,
         "wires": [
             [
                 "569f0bcbe0758d28"
@@ -9645,8 +9926,8 @@
         "topic": "update",
         "payload": "",
         "payloadType": "date",
-        "x": 400,
-        "y": 320,
+        "x": 350,
+        "y": 380,
         "wires": [
             [
                 "34559fc6ca703fdf"
@@ -9659,8 +9940,8 @@
         "z": "1eb03b4f8f90f9d8",
         "name": "link in 6",
         "links": [],
-        "x": 435,
-        "y": 280,
+        "x": 385,
+        "y": 340,
         "wires": [
             [
                 "34559fc6ca703fdf"
@@ -9751,8 +10032,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
-        "y": 620,
+        "x": 830,
+        "y": 560,
         "wires": [
             []
         ]
@@ -9778,8 +10059,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 410,
-        "y": 900,
+        "x": 330,
+        "y": 820,
         "wires": [
             [
                 "34559fc6ca703fdf"
@@ -9807,8 +10088,8 @@
         "topic": "read_ADC4_AI1",
         "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":41,\"quantity\":1}",
         "payloadType": "json",
-        "x": 350,
-        "y": 480,
+        "x": 330,
+        "y": 540,
         "wires": [
             [
                 "34559fc6ca703fdf"
@@ -9836,8 +10117,8 @@
         "topic": "read_ADC4_AI2",
         "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":42,\"quantity\":1}",
         "payloadType": "json",
-        "x": 350,
-        "y": 520,
+        "x": 330,
+        "y": 580,
         "wires": [
             [
                 "34559fc6ca703fdf"
@@ -9861,8 +10142,8 @@
         "keepMsgProperties": true,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 830,
-        "y": 560,
+        "x": 810,
+        "y": 480,
         "wires": [
             [
                 "c87fddc1c5401137",
@@ -9898,17 +10179,36 @@
                 "t": "eq",
                 "v": "read_ADC4_AI3",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "read_ADC4_AI4",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "read_ADC4_AI5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "read_ADC4_AI6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "read_ADC4_AI7",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 4,
+        "outputs": 8,
         "x": 1040,
         "y": 460,
         "wires": [
             [
-                "b64b7ffe3203889c",
-                "45b9deb7c0d74a0f"
+                "b64b7ffe3203889c"
             ],
             [
                 "cf56faf8d34882c8"
@@ -9916,8 +10216,11 @@
             [
                 "57535c28529681a8"
             ],
+            [],
+            [],
+            [],
+            [],
             [
-                "f4f0c5b08a54fa4c",
                 "4be8d18542c9a04c"
             ]
         ]
@@ -9943,8 +10246,8 @@
         "topic": "read_ADC4_AI3",
         "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":43,\"quantity\":1}",
         "payloadType": "json",
-        "x": 350,
-        "y": 560,
+        "x": 330,
+        "y": 620,
         "wires": [
             [
                 "34559fc6ca703fdf"
@@ -9964,7 +10267,7 @@
         "finalize": "",
         "libs": [],
         "x": 1300,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "70e7c024682b436a",
@@ -9990,8 +10293,8 @@
         "fontSize": 16,
         "color": "#717171",
         "className": "",
-        "x": 1760,
-        "y": 300,
+        "x": 1640,
+        "y": 460,
         "wires": []
     },
     {
@@ -10006,8 +10309,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1450,
-        "y": 300,
+        "x": 1470,
+        "y": 460,
         "wires": [
             [
                 "c54d52a4c69a9dd7"
@@ -10026,31 +10329,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1600,
-        "y": 300,
+        "x": 1460,
+        "y": 460,
         "wires": [
-            [
-                "01e6bbfbb0270ad8"
-            ]
+            []
         ]
-    },
-    {
-        "id": "01e6bbfbb0270ad8",
-        "type": "mqtt out",
-        "z": "1eb03b4f8f90f9d8",
-        "name": "mqtt_tb_ST-4.1",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "faac219c20213937",
-        "x": 1960,
-        "y": 300,
-        "wires": []
     },
     {
         "id": "4be8d18542c9a04c",
@@ -10064,8 +10347,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1300,
-        "y": 440,
+        "x": 1280,
+        "y": 520,
         "wires": [
             [
                 "d0a12c79eba2a181",
@@ -10091,8 +10374,8 @@
         "fontSize": 16,
         "color": "#717171",
         "className": "",
-        "x": 1770,
-        "y": 400,
+        "x": 1650,
+        "y": 520,
         "wires": []
     },
     {
@@ -10107,8 +10390,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1470,
-        "y": 400,
+        "x": 1430,
+        "y": 520,
         "wires": [
             [
                 "1b2dee1aef989956"
@@ -10127,31 +10410,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1620,
-        "y": 400,
+        "x": 1440,
+        "y": 520,
         "wires": [
-            [
-                "09b182b456989381"
-            ]
+            []
         ]
-    },
-    {
-        "id": "09b182b456989381",
-        "type": "mqtt out",
-        "z": "1eb03b4f8f90f9d8",
-        "name": "mqtt_tb_ST-4.2",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "afd9e960d4e5dc31",
-        "x": 1980,
-        "y": 400,
-        "wires": []
     },
     {
         "id": "b64b7ffe3203889c",
@@ -10166,7 +10429,7 @@
         "finalize": "",
         "libs": [],
         "x": 1300,
-        "y": 480,
+        "y": 380,
         "wires": [
             [
                 "d565e625a2fa25ae",
@@ -10192,8 +10455,8 @@
         "fontSize": 16,
         "color": "#717171",
         "className": "",
-        "x": 1770,
-        "y": 480,
+        "x": 1670,
+        "y": 380,
         "wires": []
     },
     {
@@ -10208,8 +10471,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1450,
-        "y": 480,
+        "x": 1490,
+        "y": 380,
         "wires": [
             [
                 "7b85205059597a67"
@@ -10228,31 +10491,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1600,
-        "y": 480,
+        "x": 1480,
+        "y": 380,
         "wires": [
-            [
-                "a755574e65ace873"
-            ]
+            []
         ]
-    },
-    {
-        "id": "a755574e65ace873",
-        "type": "mqtt out",
-        "z": "1eb03b4f8f90f9d8",
-        "name": "mqtt_tb_ST-4.3",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "91368090b030873f",
-        "x": 1960,
-        "y": 480,
-        "wires": []
     },
     {
         "id": "cf56faf8d34882c8",
@@ -10266,8 +10509,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1320,
-        "y": 560,
+        "x": 1300,
+        "y": 420,
         "wires": [
             [
                 "c2b04d696ca8297c",
@@ -10293,8 +10536,8 @@
         "fontSize": 16,
         "color": "#717171",
         "className": "",
-        "x": 1780,
-        "y": 560,
+        "x": 1640,
+        "y": 420,
         "wires": []
     },
     {
@@ -10310,7 +10553,7 @@
         "finalize": "",
         "libs": [],
         "x": 1470,
-        "y": 560,
+        "y": 420,
         "wires": [
             [
                 "684af736f7c6871c"
@@ -10329,63 +10572,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1620,
-        "y": 560,
+        "x": 1480,
+        "y": 420,
         "wires": [
-            [
-                "8d27f541931454ef"
-            ]
+            []
         ]
-    },
-    {
-        "id": "8d27f541931454ef",
-        "type": "mqtt out",
-        "z": "1eb03b4f8f90f9d8",
-        "name": "mqtt_tb_ST-4.4",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "594baef6432bf7e5",
-        "x": 1990,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "f4f0c5b08a54fa4c",
-        "type": "debug",
-        "z": "1eb03b4f8f90f9d8",
-        "name": "debug 37",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1200,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "45b9deb7c0d74a0f",
-        "type": "debug",
-        "z": "1eb03b4f8f90f9d8",
-        "name": "debug 38",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1130,
-        "y": 340,
-        "wires": []
     },
     {
         "id": "e9df0b89957630a9",
@@ -10393,8 +10584,8 @@
         "z": "1eb03b4f8f90f9d8",
         "server": "a1b3d7fc83d5c6f6",
         "name": "DB",
-        "x": 2190,
-        "y": 460,
+        "x": 2010,
+        "y": 440,
         "wires": [
             []
         ]
@@ -10411,8 +10602,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1600,
-        "y": 340,
+        "x": 1460,
+        "y": 460,
         "wires": [
             [
                 "e9df0b89957630a9"
@@ -10431,8 +10622,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1620,
-        "y": 440,
+        "x": 1440,
+        "y": 520,
         "wires": [
             [
                 "e9df0b89957630a9"
@@ -10451,8 +10642,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1620,
-        "y": 520,
+        "x": 1480,
+        "y": 380,
         "wires": [
             [
                 "e9df0b89957630a9"
@@ -10471,11 +10662,127 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1660,
-        "y": 620,
+        "x": 1480,
+        "y": 420,
         "wires": [
             [
                 "e9df0b89957630a9"
+            ]
+        ]
+    },
+    {
+        "id": "81886a7594332d1d",
+        "type": "inject",
+        "z": "1eb03b4f8f90f9d8",
+        "name": "ADC4_AI7",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC4_AI7",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":47,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 330,
+        "y": 780,
+        "wires": [
+            [
+                "34559fc6ca703fdf"
+            ]
+        ]
+    },
+    {
+        "id": "0666e494f2c1b606",
+        "type": "inject",
+        "z": "1eb03b4f8f90f9d8",
+        "name": "ADC4_AI5",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC4_AI5",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":45,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 330,
+        "y": 700,
+        "wires": [
+            [
+                "34559fc6ca703fdf"
+            ]
+        ]
+    },
+    {
+        "id": "bf2cabf9d0cc5d38",
+        "type": "inject",
+        "z": "1eb03b4f8f90f9d8",
+        "name": "ADC4_AI4",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC4_AI4",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":44,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 330,
+        "y": 660,
+        "wires": [
+            [
+                "34559fc6ca703fdf"
+            ]
+        ]
+    },
+    {
+        "id": "e0402c118db6ba6e",
+        "type": "inject",
+        "z": "1eb03b4f8f90f9d8",
+        "name": "ADC4_AI6",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC4_AI6",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":46,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 330,
+        "y": 740,
+        "wires": [
+            [
+                "34559fc6ca703fdf"
             ]
         ]
     },
@@ -10500,8 +10807,8 @@
         "topic": "update",
         "payload": "",
         "payloadType": "date",
-        "x": 360,
-        "y": 560,
+        "x": 450,
+        "y": 660,
         "wires": [
             [
                 "a3a556a1e3a2394d"
@@ -10529,8 +10836,8 @@
         "topic": "next",
         "payload": "",
         "payloadType": "date",
-        "x": 370,
-        "y": 520,
+        "x": 460,
+        "y": 620,
         "wires": [
             [
                 "a3a556a1e3a2394d"
@@ -10557,7 +10864,7 @@
         "to": "",
         "reg": false,
         "x": 740,
-        "y": 580,
+        "y": 640,
         "wires": [
             [
                 "a3a556a1e3a2394d"
@@ -10610,8 +10917,8 @@
         "topic": "update",
         "payload": "",
         "payloadType": "date",
-        "x": 370,
-        "y": 480,
+        "x": 460,
+        "y": 580,
         "wires": [
             [
                 "a3a556a1e3a2394d"
@@ -10624,8 +10931,8 @@
         "z": "237db71295252168",
         "name": "link in 2",
         "links": [],
-        "x": 405,
-        "y": 440,
+        "x": 485,
+        "y": 540,
         "wires": [
             [
                 "a3a556a1e3a2394d"
@@ -10644,8 +10951,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 930,
-        "y": 740,
+        "x": 910,
+        "y": 760,
         "wires": [
             []
         ]
@@ -10671,8 +10978,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 380,
-        "y": 940,
+        "x": 440,
+        "y": 1200,
         "wires": [
             [
                 "a3a556a1e3a2394d"
@@ -10706,27 +11013,74 @@
                 "t": "eq",
                 "v": "read_ADC2_AI4",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "read_ADC2_AI5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "read_ADC2_AI6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "read_ADC2_AI7",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "read_ADC2_AI8",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "read_ADC2_AI9",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "read_ADC2_AI10",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "read_ADC2_AI11",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "read_ADC2_AI12",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 4,
-        "x": 1160,
-        "y": 700,
+        "outputs": 12,
+        "x": 1140,
+        "y": 720,
         "wires": [
+            [
+                "ba1fca1ce4527c9f"
+            ],
             [
                 "7a81c465a2fd907f"
             ],
             [
-                "ba1fca1ce4527c9f",
-                "641afb21c96c8965"
+                "34e26b33b33bfcd5"
             ],
             [
                 "1368e955718fa813"
             ],
-            [
-                "34e26b33b33bfcd5"
-            ]
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
         ]
     },
     {
@@ -10748,9 +11102,9 @@
         "once": true,
         "onceDelay": "1",
         "topic": "read_ADC2_AI1",
-        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":10,\"quantity\":1}",
+        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":96,\"quantity\":1}",
         "payloadType": "json",
-        "x": 340,
+        "x": 450,
         "y": 700,
         "wires": [
             [
@@ -10775,8 +11129,8 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 680,
+        "x": 920,
+        "y": 700,
         "wires": [
             [
                 "a35b50c76128749b"
@@ -10805,9 +11159,9 @@
         "once": true,
         "onceDelay": "1",
         "topic": "read_ADC2_AI2",
-        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":11,\"quantity\":1}",
+        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":97,\"quantity\":1}",
         "payloadType": "json",
-        "x": 340,
+        "x": 450,
         "y": 740,
         "wires": [
             [
@@ -10834,9 +11188,9 @@
         "once": true,
         "onceDelay": "1",
         "topic": "read_ADC2_AI3",
-        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":12,\"quantity\":1}",
+        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":98,\"quantity\":1}",
         "payloadType": "json",
-        "x": 340,
+        "x": 450,
         "y": 780,
         "wires": [
             [
@@ -10863,9 +11217,9 @@
         "once": true,
         "onceDelay": "1",
         "topic": "read_ADC2_AI4",
-        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":13,\"quantity\":1}",
+        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":99,\"quantity\":1}",
         "payloadType": "json",
-        "x": 340,
+        "x": 450,
         "y": 820,
         "wires": [
             [
@@ -10878,60 +11232,20 @@
         "type": "function",
         "z": "237db71295252168",
         "name": "calc_vol_FA-01",
-        "func": "const valorCrudo = msg.payload.data[0];\nconst valorLitros = ((valorCrudo - 800) / (4000 - 800)) * (115500 - 0);\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;\n",
-        "outputs": 2,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1420,
-        "y": 560,
-        "wires": [
-            [
-                "455c74b035bee458",
-                "60977eea11983ef3",
-                "0f5d8550f43b82d9",
-                "9887e7527c991d53"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "10c9a330c639cc26",
-        "type": "mqtt out",
-        "z": "237db71295252168",
-        "name": "mqtt_tb_MN-1",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "7ac8f4b3a29c864f",
-        "x": 1780,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "455c74b035bee458",
-        "type": "function",
-        "z": "237db71295252168",
-        "name": "telemetria",
-        "func": "msg.payload = {\n  volumen: msg.payload\n};\nreturn msg;",
+        "func": "const valorCrudo = msg.payload.data[0];\nconst valorLitros = ((valorCrudo - 4000) / (20000 - 4000)) * (116000 - 0);\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1620,
-        "y": 580,
+        "x": 1380,
+        "y": 680,
         "wires": [
             [
-                "10c9a330c639cc26"
+                "60977eea11983ef3",
+                "9887e7527c991d53",
+                "bde75cb1fd21bec4"
             ]
         ]
     },
@@ -10973,8 +11287,8 @@
         "width": "1",
         "height": "5",
         "className": "",
-        "x": 1800,
-        "y": 540,
+        "x": 1960,
+        "y": 680,
         "wires": [
             []
         ]
@@ -10991,8 +11305,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1610,
-        "y": 540,
+        "x": 1550,
+        "y": 680,
         "wires": [
             [
                 "d9896c8e57f4c569"
@@ -11000,81 +11314,24 @@
         ]
     },
     {
-        "id": "0f5d8550f43b82d9",
-        "type": "debug",
-        "z": "237db71295252168",
-        "name": "vol_FA-01",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1960,
-        "y": 540,
-        "wires": []
-    },
-    {
         "id": "7a81c465a2fd907f",
         "type": "function",
         "z": "237db71295252168",
         "name": "calc_vol_FA-09",
-        "func": "const valorCrudo = msg.payload.data[0];\nconst valorLitros = ((valorCrudo - 793) / (4000 - 793)) * (19000 - 0);\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;\n",
-        "outputs": 2,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1420,
-        "y": 660,
-        "wires": [
-            [
-                "d5a5e3b753d67b52",
-                "5247d5babf92f2f1",
-                "71040555683327b1",
-                "d34dc40732492e77"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "df21dfbef6dc88fa",
-        "type": "mqtt out",
-        "z": "237db71295252168",
-        "name": "mqtt_tb_MN-9",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "bb61bb0c49cb82b4",
-        "x": 1780,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "d5a5e3b753d67b52",
-        "type": "function",
-        "z": "237db71295252168",
-        "name": "telemetria",
-        "func": "msg.payload = {\n  volumen: msg.payload\n};\nreturn msg;",
+        "func": "const valorCrudo = msg.payload.data[0];\nconst valorLitros = ((valorCrudo - 4000) / (20000 - 4000)) * (19000 - 0);\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1620,
-        "y": 680,
+        "x": 1380,
+        "y": 640,
         "wires": [
             [
-                "df21dfbef6dc88fa"
+                "5247d5babf92f2f1",
+                "d34dc40732492e77",
+                "a2e534e33cfe5074"
             ]
         ]
     },
@@ -11116,7 +11373,7 @@
         "width": "1",
         "height": "5",
         "className": "",
-        "x": 1800,
+        "x": 1960,
         "y": 640,
         "wires": [
             []
@@ -11134,7 +11391,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1630,
+        "x": 1550,
         "y": 640,
         "wires": [
             [
@@ -11143,42 +11400,24 @@
         ]
     },
     {
-        "id": "71040555683327b1",
-        "type": "debug",
-        "z": "237db71295252168",
-        "name": "vol_FA-09",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1960,
-        "y": 640,
-        "wires": []
-    },
-    {
         "id": "1368e955718fa813",
         "type": "function",
         "z": "237db71295252168",
         "name": "calc_vol_FA-2B",
-        "func": "const valorCrudo = msg.payload.data[0];\nconst valorLitros = ((valorCrudo - 800) / (4000 - 800)) * (19000 - 0);\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;",
+        "func": "const valorCrudo = msg.payload.data[0];\nconst valorLitros = ((valorCrudo - 4000) / (20000 - 4000)) * (20000 - 0);\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1420,
-        "y": 740,
+        "x": 1380,
+        "y": 720,
         "wires": [
             [
                 "8a4054492ab4cfd0",
-                "e60ca6f5ace3079e",
-                "15551130d770b9ec",
-                "e21d50695f6292f9"
+                "e21d50695f6292f9",
+                "0a646d28593eea18"
             ]
         ]
     },
@@ -11195,30 +11434,10 @@
         "finalize": "",
         "libs": [],
         "x": 1630,
-        "y": 740,
+        "y": 720,
         "wires": [
             [
                 "54bfd218982c5c19"
-            ]
-        ]
-    },
-    {
-        "id": "e60ca6f5ace3079e",
-        "type": "function",
-        "z": "237db71295252168",
-        "name": "telemetria",
-        "func": "msg.payload = {\n  volumen: msg.payload\n};\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1640,
-        "y": 780,
-        "wires": [
-            [
-                "62f7a4dc423789c5"
             ]
         ]
     },
@@ -11260,63 +11479,11 @@
         "width": "1",
         "height": "5",
         "className": "",
-        "x": 1820,
-        "y": 740,
+        "x": 1960,
+        "y": 720,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "62f7a4dc423789c5",
-        "type": "mqtt out",
-        "z": "237db71295252168",
-        "d": true,
-        "name": "mqtt_tb_MN-2B",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "e443c1511ad4f443",
-        "x": 1620,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "15551130d770b9ec",
-        "type": "debug",
-        "z": "237db71295252168",
-        "name": "vol_FA-2A",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2170,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "641afb21c96c8965",
-        "type": "debug",
-        "z": "237db71295252168",
-        "name": "debug 36",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1370,
-        "y": 980,
-        "wires": []
     },
     {
         "id": "0d54dc304bd4a627",
@@ -11324,8 +11491,8 @@
         "z": "237db71295252168",
         "server": "a1b3d7fc83d5c6f6",
         "name": "DB",
-        "x": 2350,
-        "y": 660,
+        "x": 2130,
+        "y": 680,
         "wires": [
             []
         ]
@@ -11342,8 +11509,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1610,
-        "y": 500,
+        "x": 1790,
+        "y": 680,
         "wires": [
             [
                 "0d54dc304bd4a627"
@@ -11362,8 +11529,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2150,
-        "y": 660,
+        "x": 1790,
+        "y": 640,
         "wires": [
             [
                 "0d54dc304bd4a627"
@@ -11382,8 +11549,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1990,
-        "y": 740,
+        "x": 1790,
+        "y": 720,
         "wires": [
             []
         ]
@@ -11400,8 +11567,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1770,
-        "y": 920,
+        "x": 1630,
+        "y": 760,
         "wires": [
             [
                 "0d54dc304bd4a627"
@@ -11413,21 +11580,280 @@
         "type": "function",
         "z": "237db71295252168",
         "name": "Flujo_sensor",
-        "func": "const valorCrudo = msg.payload.data[0];\nconst flujo = ((valorCrudo - 800) / (4000 - 800)) * (11000 - 0);\nmsg.payload = Math.round(flujo);  // Mantener solo el valor numérico\nreturn msg;\n",
-        "outputs": 2,
+        "func": "const valorCrudo = msg.payload.data[0];\nconst flujo = ((valorCrudo - 800) / (4000 - 800)) * (9200 - 0);\nmsg.payload = Math.round(flujo);  // Mantener solo el valor numérico\nreturn msg;\n",
+        "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1530,
-        "y": 920,
+        "x": 1390,
+        "y": 760,
         "wires": [
             [
-                "50eaa7cf5e858a71"
-            ],
+                "50eaa7cf5e858a71",
+                "1f03e1e58ceb4549"
+            ]
+        ]
+    },
+    {
+        "id": "1f03e1e58ceb4549",
+        "type": "ui-gauge",
+        "z": "237db71295252168",
+        "name": "Flujo",
+        "group": "7c21feeaf5ff947a",
+        "order": 0,
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "gauge",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353"
+            }
+        ],
+        "min": 0,
+        "max": "10000",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1990,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "a2e534e33cfe5074",
+        "type": "debug",
+        "z": "237db71295252168",
+        "name": "debug 51",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1560,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "bde75cb1fd21bec4",
+        "type": "debug",
+        "z": "237db71295252168",
+        "name": "debug 52",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1620,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "9adae7cd2ab254d1",
+        "type": "inject",
+        "z": "237db71295252168",
+        "name": "ADC_2_AI6",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC2_AI6",
+        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":101,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 450,
+        "y": 900,
+        "wires": [
+            [
+                "a3a556a1e3a2394d"
+            ]
+        ]
+    },
+    {
+        "id": "45e03c106be9bfde",
+        "type": "inject",
+        "z": "237db71295252168",
+        "name": "ADC_2_AI5",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC2_AI5",
+        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":100,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 450,
+        "y": 860,
+        "wires": [
+            [
+                "a3a556a1e3a2394d"
+            ]
+        ]
+    },
+    {
+        "id": "91e318e1ed4308e0",
+        "type": "inject",
+        "z": "237db71295252168",
+        "name": "ADC_2_AI7",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC2_AI7",
+        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":102,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 450,
+        "y": 940,
+        "wires": [
+            [
+                "a3a556a1e3a2394d"
+            ]
+        ]
+    },
+    {
+        "id": "573e1681fec4a8f7",
+        "type": "inject",
+        "z": "237db71295252168",
+        "name": "ADC_2_AI8",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC2_AI8",
+        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":103,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 450,
+        "y": 980,
+        "wires": [
             []
         ]
+    },
+    {
+        "id": "ee532c03e91161c3",
+        "type": "inject",
+        "z": "237db71295252168",
+        "name": "ADC_2_AI9",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC2_AI9",
+        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":104,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 450,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1c163215a47f5156",
+        "type": "inject",
+        "z": "237db71295252168",
+        "name": "ADC_2_AI10",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC2_AI10",
+        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":105,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 460,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0a646d28593eea18",
+        "type": "debug",
+        "z": "237db71295252168",
+        "name": "debug 56",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1620,
+        "y": 920,
+        "wires": []
     },
     {
         "id": "333780b073541cf7",
@@ -11507,9 +11933,7 @@
         "x": 1540,
         "y": 460,
         "wires": [
-            [
-                "46ccc658d5e737f6"
-            ]
+            []
         ]
     },
     {
@@ -11590,9 +12014,7 @@
         "x": 1540,
         "y": 540,
         "wires": [
-            [
-                "bb4d8de044e1b3f3"
-            ]
+            []
         ]
     },
     {
@@ -11673,9 +12095,7 @@
         "x": 1540,
         "y": 620,
         "wires": [
-            [
-                "f3ea244472cc0dd0"
-            ]
+            []
         ]
     },
     {
@@ -11756,9 +12176,7 @@
         "x": 1540,
         "y": 700,
         "wires": [
-            [
-                "a7a629b2aeb05fd4"
-            ]
+            []
         ]
     },
     {
@@ -11782,8 +12200,8 @@
         "topic": "read_ADC5_AI0",
         "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":40,\"quantity\":1,\"item\":0}",
         "payloadType": "json",
-        "x": 270,
-        "y": 420,
+        "x": 250,
+        "y": 520,
         "wires": [
             [
                 "1f4d37927e3b5236"
@@ -11811,8 +12229,8 @@
         "topic": "update",
         "payload": "",
         "payloadType": "date",
-        "x": 310,
-        "y": 380,
+        "x": 260,
+        "y": 480,
         "wires": [
             [
                 "1f4d37927e3b5236"
@@ -11840,8 +12258,8 @@
         "topic": "next",
         "payload": "",
         "payloadType": "date",
-        "x": 320,
-        "y": 340,
+        "x": 270,
+        "y": 440,
         "wires": [
             [
                 "1f4d37927e3b5236"
@@ -11921,8 +12339,8 @@
         "topic": "update",
         "payload": "",
         "payloadType": "date",
-        "x": 320,
-        "y": 300,
+        "x": 270,
+        "y": 400,
         "wires": [
             [
                 "1f4d37927e3b5236"
@@ -11935,8 +12353,8 @@
         "z": "f6951d71b64c6ea4",
         "name": "link in 8",
         "links": [],
-        "x": 355,
-        "y": 260,
+        "x": 305,
+        "y": 360,
         "wires": [
             [
                 "1f4d37927e3b5236"
@@ -11982,8 +12400,8 @@
         "topic": "read_ADC5_AI1",
         "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":41,\"quantity\":1}",
         "payloadType": "json",
-        "x": 270,
-        "y": 460,
+        "x": 250,
+        "y": 560,
         "wires": [
             [
                 "1f4d37927e3b5236"
@@ -12011,8 +12429,8 @@
         "topic": "read_ADC5_AI2",
         "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":42,\"quantity\":1}",
         "payloadType": "json",
-        "x": 270,
-        "y": 500,
+        "x": 250,
+        "y": 600,
         "wires": [
             [
                 "1f4d37927e3b5236"
@@ -12118,8 +12536,8 @@
         "topic": "read_ADC5_AI3",
         "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":43,\"quantity\":1}",
         "payloadType": "json",
-        "x": 270,
-        "y": 540,
+        "x": 250,
+        "y": 640,
         "wires": [
             [
                 "1f4d37927e3b5236"
@@ -12219,8 +12637,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 340,
-        "y": 780,
+        "x": 250,
+        "y": 680,
         "wires": [
             [
                 "1f4d37927e3b5236"
@@ -12260,85 +12678,13 @@
         "wires": []
     },
     {
-        "id": "46ccc658d5e737f6",
-        "type": "mqtt out",
-        "z": "f6951d71b64c6ea4",
-        "name": "mqtt_tb_ST-3.2",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "a32defc5189db4ea",
-        "x": 1900,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "bb4d8de044e1b3f3",
-        "type": "mqtt out",
-        "z": "f6951d71b64c6ea4",
-        "name": "mqtt_tb_ST-3.1",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "9c9e2630ed80f90e",
-        "x": 1900,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "f3ea244472cc0dd0",
-        "type": "mqtt out",
-        "z": "f6951d71b64c6ea4",
-        "name": "mqtt_tb_ST-3.4",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "7d040f0f19d79e89",
-        "x": 1900,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "a7a629b2aeb05fd4",
-        "type": "mqtt out",
-        "z": "f6951d71b64c6ea4",
-        "name": "mqtt_tb_ST-3.3",
-        "topic": "v1/devices/me/telemetry",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "b2eea5177ada0477",
-        "x": 1900,
-        "y": 700,
-        "wires": []
-    },
-    {
         "id": "78ddba4a9b4205c3",
         "type": "Stackhero-InfluxDB-v2-write",
         "z": "f6951d71b64c6ea4",
         "server": "a1b3d7fc83d5c6f6",
         "name": "DB",
-        "x": 2370,
-        "y": 540,
+        "x": 2070,
+        "y": 600,
         "wires": [
             []
         ]
