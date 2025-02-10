@@ -5061,8 +5061,7 @@
             [
                 "fd6756cf620457c8",
                 "f19a2519f209d82c",
-                "aeb7edf3841c6c3a",
-                "6104d814fbbaffc9"
+                "aeb7edf3841c6c3a"
             ]
         ]
     },
@@ -5097,7 +5096,7 @@
         "id": "5ca4dd842f5cab2f",
         "type": "switch",
         "z": "ef484dfe62883e41",
-        "name": "ADC_1 Registers",
+        "name": "ADC-TC-01 CANALES",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
@@ -5125,22 +5124,19 @@
         "checkall": "true",
         "repair": false,
         "outputs": 4,
-        "x": 1430,
+        "x": 1440,
         "y": 740,
         "wires": [
             [
-                "49285a965e3008a7",
-                "12ec2de2de8953ab"
+                "49285a965e3008a7"
             ],
             [
                 "c98d29923810f8a4",
-                "f567f8f27fb7333c",
-                "6f2ec31612384194"
+                "f567f8f27fb7333c"
             ],
             [],
             [
-                "88ee6a4e2d2990d8",
-                "77576749e2c9314a"
+                "88ee6a4e2d2990d8"
             ]
         ]
     },
@@ -5638,8 +5634,8 @@
         "fontSize": 16,
         "color": "#717171",
         "className": "",
-        "x": 2140,
-        "y": 780,
+        "x": 2020,
+        "y": 760,
         "wires": []
     },
     {
@@ -5654,8 +5650,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1930,
-        "y": 780,
+        "x": 1850,
+        "y": 760,
         "wires": [
             [
                 "5c2751931feee1c0"
@@ -5713,7 +5709,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1710,
+        "x": 1650,
         "y": 760,
         "wires": [
             [
@@ -5919,7 +5915,7 @@
         "id": "ad59eabbf7007479",
         "type": "switch",
         "z": "ef484dfe62883e41",
-        "name": "ADC_2 Registers",
+        "name": "ADC-TC-02 CANALES",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
@@ -5960,24 +5956,22 @@
             },
             {
                 "t": "eq",
-                "v": "read_ADC2_AI8",
+                "v": "ADC-TC-02-8",
                 "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 8,
-        "x": 1410,
+        "x": 1420,
         "y": 900,
         "wires": [
             [],
             [],
             [
-                "e64d56b38b63e707",
-                "0577d78ce7763ed3"
+                "e64d56b38b63e707"
             ],
             [
-                "84a1d17d56091076",
                 "45c510cafe3c77c8"
             ],
             [],
@@ -6214,7 +6208,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2320,
+        "x": 2200,
         "y": 760,
         "wires": [
             [
@@ -6290,40 +6284,6 @@
         "className": "",
         "x": 1950,
         "y": 600,
-        "wires": []
-    },
-    {
-        "id": "77576749e2c9314a",
-        "type": "debug",
-        "z": "ef484dfe62883e41",
-        "name": "debug 53",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1700,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "0577d78ce7763ed3",
-        "type": "debug",
-        "z": "ef484dfe62883e41",
-        "name": "debug 55",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1700,
-        "y": 940,
         "wires": []
     },
     {
@@ -6412,55 +6372,6 @@
                 "b3cb6bc705334ae6"
             ]
         ]
-    },
-    {
-        "id": "12ec2de2de8953ab",
-        "type": "debug",
-        "z": "ef484dfe62883e41",
-        "name": "debug 58",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1660,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "6104d814fbbaffc9",
-        "type": "debug",
-        "z": "ef484dfe62883e41",
-        "name": "debug 59",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1920,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "84a1d17d56091076",
-        "type": "debug",
-        "z": "ef484dfe62883e41",
-        "name": "debug 60",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1700,
-        "y": 1100,
-        "wires": []
     },
     {
         "id": "45c510cafe3c77c8",
@@ -6563,22 +6474,6 @@
                 "a485aedf0613acbe"
             ]
         ]
-    },
-    {
-        "id": "6f2ec31612384194",
-        "type": "debug",
-        "z": "ef484dfe62883e41",
-        "name": "debug 61",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1480,
-        "y": 480,
-        "wires": []
     },
     {
         "id": "5e9f45f078d99766",
