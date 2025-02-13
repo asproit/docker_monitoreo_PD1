@@ -2,7 +2,14 @@
     "name": "server_influx_nr",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-dashboard": "3.6.5",
+        "node-red-contrib-stackhero-influxdb-v2": "1.0.4",
+        "@flowfuse/node-red-dashboard": "1.17.1",
+        "node-red-contrib-modbus": "5.42.0",
+        "node-red-node-serialport": "2.0.3",
+        "node-red-contrib-influxdb": "0.7.0"
+    },
     "node-red": {
         "settings": {
             "flowFile": "server_influx_nr.json",
