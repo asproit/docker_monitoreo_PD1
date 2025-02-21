@@ -7770,20 +7770,5 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "git-sync-endpoint",
-        "type": "http in",
-        "z": "sync-tab",
-        "name": "Git Sync Endpoint",
-        "url": "/sync-git",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 450,
-        "y": 500,
-        "wires": [
-            []
-        ]
     }
 ]
