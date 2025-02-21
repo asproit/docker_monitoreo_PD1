@@ -2100,11 +2100,11 @@
         "serialParity": "none",
         "serialConnectionDelay": "100",
         "serialAsciiResponseStartDelimiter": "0x3A",
-        "unit_id": "1",
-        "commandDelay": "1",
-        "clientTimeout": "1000",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
         "reconnectOnTimeout": true,
-        "reconnectTimeout": "3000",
+        "reconnectTimeout": 3000,
         "parallelUnitIdsAllowed": true,
         "showErrors": false,
         "showWarnings": true,
@@ -2217,7 +2217,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 980,
+        "x": 1000,
         "y": 160,
         "wires": [
             [
@@ -6679,8 +6679,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 600,
+        "x": 670,
+        "y": 580,
         "wires": [
             []
         ]
@@ -6789,7 +6789,7 @@
         "keepMsgProperties": true,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 730,
+        "x": 670,
         "y": 540,
         "wires": [
             [
