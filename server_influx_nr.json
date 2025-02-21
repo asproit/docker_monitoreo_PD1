@@ -1415,30 +1415,6 @@
         "showLogs": true
     },
     {
-        "id": "influxdb-server-config",
-        "type": "Stackhero-InfluxDB-v2-Server",
-        "name": "InfluxDB Server",
-        "host": "influxdb2",
-        "port": "8086",
-        "tls": false
-    },
-    {
-        "id": "influxdb_config",
-        "type": "Stackhero-InfluxDB-v2-Server",
-        "name": "InfluxDB Server",
-        "host": "influxdb2",
-        "port": "8086",
-        "tls": false
-    },
-    {
-        "id": "145559dfd6523bef",
-        "type": "Stackhero-InfluxDB-v2-Server",
-        "name": "InfluxDB Server",
-        "host": "localhost",
-        "port": "8086",
-        "tls": false
-    },
-    {
         "id": "bd786e5f9167b374",
         "type": "ui_group",
         "name": "Metrics",
@@ -1455,14 +1431,6 @@
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
-    },
-    {
-        "id": "f41b2a6025c92ab3",
-        "type": "Stackhero-InfluxDB-v2-Server",
-        "name": "InfluxDB Server",
-        "host": "localhost",
-        "port": "8086",
-        "tls": false
     },
     {
         "id": "53d1223c6eb97ee6",
@@ -2167,6 +2135,14 @@
         "order": 1,
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "c0ae77d76fc0b798",
+        "type": "Stackhero-InfluxDB-v2-Server",
+        "name": "CONFIG-DOCKER",
+        "host": "localhost",
+        "port": "8087",
+        "tls": true
     },
     {
         "id": "12fecd1437a645f5",
@@ -6253,7 +6229,7 @@
         "id": "e9df0b89957630a9",
         "type": "Stackhero-InfluxDB-v2-write",
         "z": "1eb03b4f8f90f9d8",
-        "server": "a1b3d7fc83d5c6f6",
+        "server": "c0ae77d76fc0b798",
         "name": "DB",
         "x": 1850,
         "y": 460,

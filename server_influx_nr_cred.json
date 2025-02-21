@@ -3,5 +3,10 @@
         "token": "-tSvK64k78qlrW-YSkCjyIQb6Jp1k696Y84z3rTCeOMAJ7g7iwaFfwCCuXWmO7aMN-nsEb8BeVI-Cbr1adjZwQ==",
         "organization": "aspro",
         "bucket": "sensores"
+    },
+    "c0ae77d76fc0b798": {
+        "token": "RXbUFfUMt-GyGlXze_TBs4YnENsgcIr2cxe9To4JrbgcZgK89wpmjKX58XkbFDbOCsaQsFghw6NtK2hewsIreA==",
+        "organization": "aspro",
+        "bucket": "monitor_destilados1"
     }
 }
