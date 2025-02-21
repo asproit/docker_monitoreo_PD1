@@ -40,6 +40,13 @@
         "env": []
     },
     {
+        "id": "sync-tab",
+        "type": "tab",
+        "label": "Git Sync",
+        "disabled": false,
+        "info": "Flujo para sincronización manual con repositorio Git"
+    },
+    {
         "id": "feca9c5ced6ec599",
         "type": "mqtt-broker",
         "name": "mqtt_tb_MP-1.1",
@@ -1107,7 +1114,8 @@
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "darkTheme": {
                 "default": "#097479",
@@ -2141,6 +2149,26 @@
         "showLogs": true
     },
     {
+        "id": "sync-group",
+        "type": "ui_group",
+        "name": "Sincronización",
+        "tab": "sync-dashboard",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "sync-dashboard",
+        "type": "ui_tab",
+        "name": "Git Sync",
+        "icon": "git",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
         "id": "12fecd1437a645f5",
         "type": "inject",
         "z": "ef484dfe62883e41",
@@ -2218,7 +2246,7 @@
         "to": "",
         "reg": false,
         "x": 1000,
-        "y": 160,
+        "y": 140,
         "wires": [
             [
                 "52f696716f4afee6"
@@ -6616,8 +6644,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 470,
-        "y": 880,
+        "x": 610,
+        "y": 220,
         "wires": [
             [
                 "bfc7fe64a4896ca5"
@@ -6636,8 +6664,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 880,
+        "x": 750,
+        "y": 220,
         "wires": [
             [
                 "2e09f95e5df82a6c"
@@ -6661,8 +6689,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 850,
-        "y": 880,
+        "x": 910,
+        "y": 220,
         "wires": [
             []
         ]
@@ -7727,5 +7755,35 @@
         "x": 1240,
         "y": 660,
         "wires": []
+    },
+    {
+        "id": "88f5a81db9399324",
+        "type": "http in",
+        "z": "sync-tab",
+        "name": "Git Sync Endpoint",
+        "url": "/sync-git",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 410,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "git-sync-endpoint",
+        "type": "http in",
+        "z": "sync-tab",
+        "name": "Git Sync Endpoint",
+        "url": "/sync-git",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 450,
+        "y": 500,
+        "wires": [
+            []
+        ]
     }
 ]
