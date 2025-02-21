@@ -2142,7 +2142,7 @@
         "name": "CONFIG-DOCKER",
         "host": "influxdb",
         "port": "8086",
-        "tls": true
+        "tls": false
     },
     {
         "id": "12fecd1437a645f5",
