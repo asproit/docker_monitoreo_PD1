@@ -40,13 +40,6 @@
         "env": []
     },
     {
-        "id": "sync-tab",
-        "type": "tab",
-        "label": "Git Sync",
-        "disabled": false,
-        "info": "Flujo para sincronización manual con repositorio Git"
-    },
-    {
         "id": "feca9c5ced6ec599",
         "type": "mqtt-broker",
         "name": "mqtt_tb_MP-1.1",
@@ -7731,20 +7724,5 @@
         "x": 1240,
         "y": 660,
         "wires": []
-    },
-    {
-        "id": "88f5a81db9399324",
-        "type": "http in",
-        "z": "sync-tab",
-        "name": "Git Sync Endpoint",
-        "url": "/sync-git",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 410,
-        "y": 280,
-        "wires": [
-            []
-        ]
     }
 ]
