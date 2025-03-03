@@ -1,5 +1,5 @@
 {
-    "name": "server_influx_nr",
+    "name": "docker_monitoreo_PD1",
     "description": "A Node-RED Project",
     "version": "0.0.1",
     "dependencies": {
@@ -12,8 +12,8 @@
     },
     "node-red": {
         "settings": {
-            "flowFile": "server_influx_nr.json",
-            "credentialsFile": "server_influx_nr_cred.json"
+            "flowFile": "flows.json",
+            "credentialsFile": "credentials.json"
         }
     }
 }
