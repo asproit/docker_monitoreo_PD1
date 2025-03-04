@@ -3133,6 +3133,7 @@
         "id": "2b8683b66ac8b060",
         "type": "function",
         "z": "ef484dfe62883e41",
+        "d": true,
         "name": "F_influx_flujo",
         "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de flujo no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'monitor_destilados1',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MF-1.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                flujo_lh: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
         "outputs": 1,
