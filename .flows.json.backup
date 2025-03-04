@@ -3154,6 +3154,7 @@
         "id": "22f6fac42e1280b0",
         "type": "function",
         "z": "ef484dfe62883e41",
+        "d": true,
         "name": "F_influx_vol",
         "func": "if (isNaN(msg.payload)) {\n    node.error(\"Valor de nivel litros no es un número\", msg);\n    return null;\n}\nmsg.payload = {\n    bucket: 'monitor_destilados1',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-2.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;",
         "outputs": 1,
