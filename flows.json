@@ -5509,51 +5509,6 @@
         "x": 600,
         "y": 900,
         "wires": [
-            [
-                "66c561db97db4411"
-            ]
-        ]
-    },
-    {
-        "id": "66c561db97db4411",
-        "type": "function",
-        "z": "1eb03b4f8f90f9d8",
-        "name": "health check",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 780,
-        "y": 900,
-        "wires": [
-            [
-                "70447ce8637f8e35"
-            ]
-        ]
-    },
-    {
-        "id": "70447ce8637f8e35",
-        "type": "switch",
-        "z": "1eb03b4f8f90f9d8",
-        "name": "update diag",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 980,
-        "y": 900,
-        "wires": [
             []
         ]
     },
