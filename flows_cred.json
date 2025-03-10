@@ -1,12 +1,11 @@
 {
-    "a1b3d7fc83d5c6f6": {
-        "token": "-tSvK64k78qlrW-YSkCjyIQb6Jp1k696Y84z3rTCeOMAJ7g7iwaFfwCCuXWmO7aMN-nsEb8BeVI-Cbr1adjZwQ==",
-        "organization": "aspro",
-        "bucket": "sensores"
-    },
     "c0ae77d76fc0b798": {
-        "token": "RXbUFfUMt-GyGlXze_TBs4YnENsgcIr2cxe9To4JrbgcZgK89wpmjKX58XkbFDbOCsaQsFghw6NtK2hewsIreA==",
+        "token": "3TkyXqNszH3nnfgEWXHH0aSurUwGX2ZJC0TmZJkKSe2M0a6c1s-qoPxjfe6KPPN8tA05wtuRvpX-la6Sed4fgg==",
         "organization": "aspro",
         "bucket": "monitor_destilados1"
+    },
+    "a1b3d7fc83d5c6f6": {
+        "organization": "ASPRO",
+        "bucket": "ma"
     }
 }
