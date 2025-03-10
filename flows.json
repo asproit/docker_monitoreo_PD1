@@ -2138,6 +2138,14 @@
         "tls": false
     },
     {
+        "id": "23922e6f3a1605f7",
+        "type": "Stackhero-InfluxDB-v2-Server",
+        "name": "",
+        "host": "xxxxxx.stackhero-network.com",
+        "port": "443",
+        "tls": true
+    },
+    {
         "id": "12fecd1437a645f5",
         "type": "inject",
         "z": "ef484dfe62883e41",
@@ -7264,7 +7272,7 @@
         "id": "650f5f82d11bb0dc",
         "type": "Stackhero-InfluxDB-v2-write",
         "z": "a0c3bb5123a98cbc",
-        "server": "c0ae77d76fc0b798",
+        "server": "23922e6f3a1605f7",
         "name": "DB",
         "x": 2030,
         "y": 260,
