@@ -2138,6 +2138,14 @@
         "tls": false
     },
     {
+        "id": "23922e6f3a1605f7",
+        "type": "Stackhero-InfluxDB-v2-Server",
+        "name": "",
+        "host": "xxxxxx.stackhero-network.com",
+        "port": "443",
+        "tls": true
+    },
+    {
         "id": "12fecd1437a645f5",
         "type": "inject",
         "z": "ef484dfe62883e41",

@@ -7269,18 +7269,6 @@
         "wires": []
     },
     {
-        "id": "650f5f82d11bb0dc",
-        "type": "Stackhero-InfluxDB-v2-write",
-        "z": "a0c3bb5123a98cbc",
-        "server": "23922e6f3a1605f7",
-        "name": "DB",
-        "x": 2030,
-        "y": 260,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "e180ba8d03a97e9b",
         "type": "function",
         "z": "a0c3bb5123a98cbc",
@@ -7296,7 +7284,7 @@
         "y": 220,
         "wires": [
             [
-                "650f5f82d11bb0dc"
+                "54056ba492980cbe"
             ]
         ]
     },
@@ -7316,7 +7304,7 @@
         "y": 380,
         "wires": [
             [
-                "650f5f82d11bb0dc"
+                "54056ba492980cbe"
             ]
         ]
     },
@@ -7336,7 +7324,7 @@
         "y": 100,
         "wires": [
             [
-                "650f5f82d11bb0dc"
+                "54056ba492980cbe"
             ]
         ]
     },
@@ -7379,7 +7367,7 @@
         "y": 540,
         "wires": [
             [
-                "650f5f82d11bb0dc"
+                "54056ba492980cbe"
             ]
         ]
     },
@@ -7474,6 +7462,18 @@
         "libs": [],
         "x": 1480,
         "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "54056ba492980cbe",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "a0c3bb5123a98cbc",
+        "server": "c0ae77d76fc0b798",
+        "name": "DB",
+        "x": 2070,
+        "y": 360,
         "wires": [
             []
         ]
