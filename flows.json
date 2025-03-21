@@ -2438,7 +2438,7 @@
         "type": "function",
         "z": "ef484dfe62883e41",
         "name": "calc_temp",
-        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 45;\nconst valorMax = 1100;\n\nconst valorADC = msg.payload[0];\nconst valorTemperatura = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = Math.round(valorTemperatura);\n\nreturn msg;\n",
+        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 1038;\n\nconst valorADC = msg.payload[0];\nconst valorTemperatura = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = Math.round(valorTemperatura);\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
